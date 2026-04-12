@@ -1,0 +1,76 @@
+{
+  "_schema_version": 1,
+  "_editing_notes": [
+    "Edit employers by company name. Keep JSON valid.",
+    "employer_interest_level can be low, medium, high, or frontier.",
+    "starred employers get more visibility in the dashboard and employer dossiers."
+  ],
+  "_example_entry": {
+    "company": "Providence",
+    "starred": true,
+    "employer_interest_level": "high",
+    "pinned_reason": "Strong bridge employer with visible innovation footprint.",
+    "note": "Worth tracking across both Oregon and frontier rails.",
+    "notes": [
+      "Look for workflow, implementation, and clinical systems openings.",
+      "Signals here matter even when a specific role is not ready yet."
+    ]
+  },
+  "employers": [
+    {
+      "company": "Providence",
+      "starred": true,
+      "employer_interest_level": "high",
+      "pinned_reason": "strong Oregon fit",
+      "note": "Best current mix of Oregon-now volume, bridge inventory, and innovation signal.",
+      "notes": [
+        "good bridge employer",
+        "worth tracking after reinstatement"
+      ]
+    },
+    {
+      "company": "OHSU",
+      "starred": true,
+      "employer_interest_level": "high",
+      "pinned_reason": "worth tracking after reinstatement",
+      "note": "Core Oregon anchor employer with the clearest informatics and innovation signal depth.",
+      "notes": [
+        "strong Oregon fit",
+        "good bridge employer"
+      ]
+    },
+    {
+      "company": "Kaiser Permanente",
+      "starred": true,
+      "employer_interest_level": "high",
+      "pinned_reason": "good bridge role",
+      "note": "Practical Portland employer for case-management, coordination, and OR-adjacent roles.",
+      "notes": [
+        "strong Oregon fit",
+        "Pacific Northwest practical option"
+      ]
+    },
+    {
+      "company": "Viz.ai",
+      "starred": true,
+      "employer_interest_level": "frontier",
+      "pinned_reason": "frontier target but relocation/remote dependent",
+      "note": "Best current frontier employer for RN-leveraged, remote-friendly transition roles.",
+      "notes": [
+        "remote-friendly frontier role",
+        "worth tracking after reinstatement"
+      ]
+    },
+    {
+      "company": "Pearl Health",
+      "starred": true,
+      "employer_interest_level": "frontier",
+      "pinned_reason": "worth tracking after reinstatement",
+      "note": "Customer-success style frontier employer with good remote transition upside.",
+      "notes": [
+        "remote-friendly frontier role",
+        "frontier target but relocation/remote dependent"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "_schema_version": 1,
+  "_editing_notes": [
+    "default_preferences apply to every profile unless a profile override changes them.",
+    "preferred_geo_scopes and preferred_rn_leverage_types should use values already present in the data.",
+    "profile_weight_overrides lets you tune bonuses and penalties without changing code."
+  ],
+  "active_profile": "oregon_now",
+  "default_preferences": {
+    "preferred_geo_scopes": [
+      "oregon",
+      "pacific_northwest"
+    ],
+    "preferred_rn_leverage_types": [
+      "direct_clinical",
+      "implementation",
+      "informatics",
+      "clinical_success",
+      "product_clinical"
+    ],
+    "preferred_tracks": [
+      "core_rn_oregon",
+      "frontier_ecosystem"
+    ],
+    "preferred_employers": [
+      "Providence",
+      "OHSU",
+      "Kaiser Permanente",
+      "Viz.ai",
+      "Pearl Health"
+    ],
+    "deprioritized_employers": [],
+    "horizon_preference": "post_reinstatement",
+    "relocation_preference": "avoid_likely",
+    "focus_icu_adjacency": true,
+    "prefer_remote_frontier": true,
+    "profile_weight_overrides": {
+      "preferred_geo_scope_bonus": 10,
+      "preferred_leverage_bonus": 9,
+      "preferred_track_bonus": 6,
+      "preferred_employer_bonus": 10,
+      "deprioritized_employer_penalty": 12,
+      "high_interest_employer_bonus": 14,
+      "medium_interest_employer_bonus": 8,
+      "low_interest_employer_penalty": 8,
+      "horizon_match_bonus": 8,
+      "horizon_mismatch_penalty": 4,
+      "relocation_penalty": 8,
+      "icu_bonus": 12,
+      "remote_frontier_bonus": 12
+    }
+  },
+  "profile_overrides": {
+    "oregon_now": {
+      "preferred_tracks": [
+        "core_rn_oregon"
+      ],
+      "preferred_geo_scopes": [
+        "oregon",
+        "pacific_northwest"
+      ],
+      "preferred_rn_leverage_types": [
+        "direct_clinical",
+        "implementation",
+        "informatics"
+      ],
+      "preferred_employers": [
+        "Providence",
+        "OHSU",
+        "Kaiser Permanente"
+      ],
+      "horizon_preference": "post_reinstatement",
+      "relocation_preference": "avoid_likely",
+      "focus_icu_adjacency": true,
+      "profile_weight_overrides": {
+        "preferred_geo_scope_bonus": 12,
+        "relocation_penalty": 10,
+        "icu_bonus": 14
+      }
+    },
+    "bridge_to_informatics": {
+      "preferred_tracks": [
+        "core_rn_oregon",
+        "frontier_ecosystem"
+      ],
+      "preferred_geo_scopes": [
+        "oregon",
+        "pacific_northwest",
+        "remote_us"
+      ],
+      "preferred_rn_leverage_types": [
+        "implementation",
+        "informatics",
+        "clinical_success",
+        "product_clinical",
+        "research"
+      ],
+      "preferred_employers": [
+        "Providence",
+        "OHSU",
+        "Viz.ai",
+        "Pearl Health"
+      ],
+      "horizon_preference": "post_reinstatement",
+      "relocation_preference": "avoid_likely",
+      "focus_icu_adjacency": true,
+      "prefer_remote_frontier": true
+    },
+    "frontier_transition": {
+      "preferred_tracks": [
+        "frontier_ecosystem"
+      ],
+      "preferred_geo_scopes": [
+        "pacific_northwest",
+        "west_coast",
+        "remote_us"
+      ],
+      "preferred_rn_leverage_types": [
+        "implementation",
+        "clinical_success",
+        "informatics",
+        "product_clinical",
+        "research"
+      ],
+      "preferred_employers": [
+        "Viz.ai",
+        "Pearl Health",
+        "Providence",
+        "OHSU"
+      ],
+      "horizon_preference": "post_reinstatement",
+      "relocation_preference": "flexible",
+      "prefer_remote_frontier": true,
+      "profile_weight_overrides": {
+        "remote_frontier_bonus": 14,
+        "relocation_penalty": 6
+      }
+    }
+  },
+  "_example_entry": {
+    "active_profile": "bridge_to_informatics",
+    "default_preferences": {
+      "preferred_geo_scopes": [
+        "oregon",
+        "pacific_northwest"
+      ],
+      "preferred_rn_leverage_types": [
+        "implementation",
+        "informatics"
+      ],
+      "preferred_tracks": [
+        "core_rn_oregon",
+        "frontier_ecosystem"
+      ],
+      "horizon_preference": "post_reinstatement",
+      "relocation_preference": "avoid_likely",
+      "focus_icu_adjacency": true,
+      "prefer_remote_frontier": true,
+      "profile_weight_overrides": {
+        "icu_bonus": 12,
+        "remote_frontier_bonus": 14
+      }
+    },
+    "profile_overrides": {
+      "frontier_transition": {
+        "preferred_geo_scopes": [
+          "west_coast",
+          "remote_us"
+        ],
+        "preferred_rn_leverage_types": [
+          "clinical_success",
+          "product_clinical",
+          "implementation"
+        ],
+        "relocation_preference": "flexible"
+      }
+    }
+  }
+}

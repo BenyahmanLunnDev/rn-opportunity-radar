@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rn-opportunity-radar"
+version = "0.1.0"
+description = "Daily Oregon RN opportunity radar with AI, informatics, and bridge-role scoring."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "beautifulsoup4>=4.12.3",
+  "playwright>=1.52.0",
+  "requests>=2.32.3",
+  "tzdata>=2024.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.5",
+]
+
+[project.scripts]
+rn-opportunity-radar = "rn_opportunity_radar.main:main"
+rn-opportunity-radar-bootstrap = "rn_opportunity_radar.bootstrap:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

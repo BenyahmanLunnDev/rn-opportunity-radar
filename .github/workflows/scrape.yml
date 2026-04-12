@@ -1,0 +1,117 @@
+name: Daily Radar Refresh
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/scrape.yml"
+      - "src/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - "README.md"
+  schedule:
+    - cron: "7 13 * * *"
+    - cron: "7 14 * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: rn-opportunity-radar-pages
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
+
+      - name: Decide whether this cron should run
+        if: github.event_name == 'schedule'
+        id: schedule_gate
+        run: |
+          PYTHONPATH=src python - <<'PY'
+          import os
+          from rn_opportunity_radar.workflow import should_run_schedule
+
+          schedule = os.environ["GITHUB_EVENT_SCHEDULE"]
+          should_run = should_run_schedule(schedule)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as handle:
+            handle.write(f"should_run={'true' if should_run else 'false'}\n")
+          print(f"Scheduled trigger {schedule} -> should_run={should_run}")
+          PY
+        env:
+          GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
+
+      - name: Install dependencies
+        if: github.event_name != 'schedule' || steps.schedule_gate.outputs.should_run == 'true'
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install ".[dev]"
+          python -m playwright install --with-deps chromium
+
+      - name: Run tests
+        if: github.event_name != 'schedule'
+        run: python -m pytest
+
+      - name: Run radar
+        if: github.event_name != 'schedule' || steps.schedule_gate.outputs.should_run == 'true'
+        run: python -m rn_opportunity_radar --root .
+
+      - name: Commit generated artifacts
+        if: github.event_name != 'schedule' || steps.schedule_gate.outputs.should_run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "chore: refresh rn opportunity radar"
+            git push
+          fi
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'schedule' || steps.schedule_gate.outputs.should_run == 'true'
+        id: upload_pages
+        continue-on-error: true
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Retry upload Pages artifact
+        if: (github.event_name != 'schedule' || steps.schedule_gate.outputs.should_run == 'true') && steps.upload_pages.outcome == 'failure'
+        id: upload_pages_retry
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        if: (github.event_name != 'schedule' || steps.schedule_gate.outputs.should_run == 'true') && (steps.upload_pages.outcome == 'success' || steps.upload_pages_retry.outcome == 'success')
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Retry deploy to GitHub Pages
+        id: deployment_retry
+        if: (github.event_name != 'schedule' || steps.schedule_gate.outputs.should_run == 'true') && steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v4

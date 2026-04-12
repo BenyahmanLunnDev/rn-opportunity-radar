@@ -1,0 +1,87 @@
+Metadata-Version: 2.4
+Name: rn-opportunity-radar
+Version: 0.1.0
+Summary: Daily Oregon RN opportunity radar with AI, informatics, and bridge-role scoring.
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4>=4.12.3
+Requires-Dist: playwright>=1.52.0
+Requires-Dist: requests>=2.32.3
+Requires-Dist: tzdata>=2024.1
+Provides-Extra: dev
+Requires-Dist: pytest>=8.3.5; extra == "dev"
+
+# RN Opportunity Radar
+
+RN Opportunity Radar is a daily lead-and-signal tracker for Oregon RN opportunities, with extra weight for bridge roles and employers doing real AI, informatics, workflow, research, and digital-care work.
+
+The project follows the same operating model as Donovan LiveWire where that model still makes sense:
+
+- Python package under `src/`
+- source-specific scrapers
+- `requests` + `BeautifulSoup` first
+- lightweight browser fallback only if a source truly needs it
+- JSON persistence in `data/current/` and `data/history/`
+- static `docs/index.html` output for GitHub Pages
+- `docs/latest.json` for downstream automation
+- optional RSS feed output
+- explainable scoring with human-readable reasons
+- stale-source handling so the dashboard can distinguish fresh, stale, and vanished leads
+
+## Scope
+
+This version is built around two kinds of leads:
+
+- `job`: real openings, especially Oregon RN roles and RN-to-informatics bridge roles
+- `signal`: AI, informatics, transformation, and career-resource pages that raise employer priority or help identify watch areas
+
+## Initial v1 source coverage
+
+Live request-first parsers are included for:
+
+- OHSU nursing / RN iCIMS searches
+- Legacy nursing iCIMS search
+- Providence Oregon nursing API-backed listings
+- Kaiser Northwest / Portland nursing search pages
+- OHSU and Providence signal pages
+
+Known harder sources such as PeaceHealth and some board-style sites are intentionally left as explicit TODO sources in v1 instead of being handled with brittle scraping.
+
+## Local usage
+
+Install the package:
+
+```powershell
+python -m pip install -e .[dev]
+```
+
+Run the pipeline from the repository root:
+
+```powershell
+python -m rn_opportunity_radar --root .
+```
+
+That will update:
+
+- `data/current/jobs.json`
+- `data/current/signals.json`
+- `data/current/reports.json`
+- `data/current/summary.json`
+- `data/history/YYYY-MM-DD.json`
+- `docs/index.html`
+- `docs/latest.json`
+- `docs/feed.xml`
+
+## GitHub automation
+
+The repository includes a GitHub Actions workflow that:
+
+- runs on a Pacific-time-safe daily schedule
+- installs the package
+- executes the radar
+- commits refreshed data and docs artifacts
+- deploys `docs/` with GitHub Pages
+
+## Design direction
+
+The dashboard is intentionally not styled like Donovan LiveWire. For this project the UI direction is a light, clinical-intelligence board: soft paper backgrounds, deep teal/navy structure, restrained alert color, and an editorial scan-first layout that works on desktop and mobile without a frontend framework.
