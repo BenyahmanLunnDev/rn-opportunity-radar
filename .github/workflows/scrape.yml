@@ -44,6 +44,8 @@ jobs:
 
       - name: Set up Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Decide whether this cron should run
         if: github.event_name == 'schedule'

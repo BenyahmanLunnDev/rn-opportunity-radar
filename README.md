@@ -231,7 +231,7 @@ Notes:
 
 ### GitHub Pages setup
 
-If GitHub Pages is not already configured for the repository, enable it in GitHub:
+The workflow is configured to auto-enable Pages for the repository when possible. If GitHub Pages is still not configured after the first push, enable it in GitHub:
 
 1. open the repository on GitHub
 2. go to `Settings` -> `Pages`
