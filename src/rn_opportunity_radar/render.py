@@ -67,6 +67,20 @@ def _list_tags(values: list[str]) -> str:
     return "".join(_badge(value, "tag") for value in values[:6])
 
 
+def _render_detail_list(items: list[tuple[str, str]], class_name: str = "detail-list") -> str:
+    return (
+        f"<dl class='{escape(class_name)}'>"
+        + "".join(
+            "<div>"
+            f"<dt>{escape(label)}</dt>"
+            f"<dd>{escape(value)}</dd>"
+            "</div>"
+            for label, value in items
+        )
+        + "</dl>"
+    )
+
+
 def _render_reasons(reasons: list[str], label: str = "Why this matters") -> str:
     if not reasons:
         return "<p class='muted'>Explainable reasons will appear here after scoring.</p>"
@@ -110,22 +124,22 @@ def _lead_status_badges(lead: OpportunityLead) -> str:
 
 def _render_meta_row(lead: OpportunityLead) -> str:
     meta_bits = [
-        f"<span><strong>Employer</strong> {escape(lead.company)}</span>",
-        f"<span><strong>Location</strong> {escape(lead.location or 'Not listed')}</span>",
-        f"<span><strong>Posted</strong> {escape(_format_date_label(lead.posted_date))}</span>",
-        f"<span><strong>Base Score</strong> {lead.score}</span>",
+        ("Employer", lead.company),
+        ("Location", lead.location or "Not listed"),
+        ("Posted", _format_date_label(lead.posted_date)),
+        ("Base Score", str(lead.score)),
     ]
-    return f"<p class='meta-row'>{' · '.join(meta_bits)}</p>"
+    return _render_detail_list(meta_bits)
 
 
 def _render_profile_row(lead: OpportunityLead) -> str:
     bits = [
-        f"<span><strong>Horizon</strong> {escape(_display_label(lead.horizon))}</span>",
-        f"<span><strong>Geo Scope</strong> {escape(_display_label(lead.geo_scope))}</span>",
-        f"<span><strong>RN Leverage</strong> {escape(_display_label(lead.rn_leverage_type))}</span>",
-        f"<span><strong>Relocation</strong> {escape(_display_label(lead.relocation_risk))}</span>",
+        ("Horizon", _display_label(lead.horizon)),
+        ("Geo Scope", _display_label(lead.geo_scope)),
+        ("RN Leverage", _display_label(lead.rn_leverage_type)),
+        ("Relocation", _display_label(lead.relocation_risk)),
     ]
-    return f"<p class='profile-row'>{' · '.join(bits)}</p>"
+    return _render_detail_list(bits, "detail-list detail-list-secondary")
 
 
 def _render_manual_note(lead: OpportunityLead) -> str:
@@ -225,10 +239,8 @@ def _render_employer_card(employer: EmployerRollup) -> str:
         "<article class='card employer-card'>"
         f"<div class='card-top'>{''.join(manual_badges)}{_list_tags(employer.employer_tags)}</div>"
         f"<h3>{escape(employer.employer_name)}</h3>"
-        f"<p class='meta-row'><span><strong>Tracks</strong> {escape(', '.join(_track_label(track) for track in employer.tracks))}</span> · "
-        f"<span><strong>Employer Score</strong> {employer.employer_score}</span></p>"
-        f"<p class='profile-row'><span><strong>Locations</strong> {escape(', '.join(employer.locations_seen[:4]) or 'Not listed')}</span> · "
-        f"<span><strong>Leverage</strong> {escape(', '.join(_display_label(item) for item in employer.rn_leverage_types[:3]) or 'Mixed')}</span></p>"
+        f"{_render_detail_list([('Tracks', ', '.join(_track_label(track) for track in employer.tracks) or 'None'), ('Employer Score', str(employer.employer_score))])}"
+        f"{_render_detail_list([('Locations', ', '.join(employer.locations_seen[:4]) or 'Not listed'), ('Leverage', ', '.join(_display_label(item) for item in employer.rn_leverage_types[:3]) or 'Mixed')], 'detail-list detail-list-secondary')}"
         f"{manual_bits}"
         f"{_render_reasons(employer.why_it_matters, 'Why this employer matters')}"
         f"<p class='reason-title'><strong>Highlighted leads:</strong></p><ul class='reason-list'>{''.join(highlights) or '<li>No highlighted leads yet.</li>'}</ul>"
@@ -371,6 +383,20 @@ def render_index(
         if isinstance(geo_values, list):
             preferred_geo_scopes = ", ".join(_display_label(str(item)) for item in geo_values)
     report_rows = "".join(_render_report_row(report) for report in reports)
+    core_active_count = sum(1 for lead in active_leads if lead.track == "core_rn_oregon")
+    core_priority_count = sum(
+        1 for lead in active_leads if lead.track == "core_rn_oregon" and lead.bucket == "priority"
+    )
+    core_bridge_count = sum(1 for lead in active_leads if lead.track == "core_rn_oregon" and lead.bucket == "bridge")
+    frontier_active_count = sum(1 for lead in active_leads if lead.track == "frontier_ecosystem")
+    frontier_target_count = sum(
+        1 for lead in active_leads if lead.track == "frontier_ecosystem" and lead.bucket == "target"
+    )
+    frontier_watch_count = sum(
+        1
+        for lead in active_leads
+        if lead.track == "frontier_ecosystem" and lead.bucket in {"strategic_watch", "ecosystem_signal"}
+    )
 
     return f"""<!doctype html>
 <html lang="en">
@@ -380,131 +406,295 @@ def render_index(
   <title>RN Opportunity Radar</title>
   <meta name="description" content="Career navigation dashboard for Oregon RN leads and frontier nursing-tech transition work.">
   <link rel="icon" href="{_favicon_data_uri()}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@500;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {{
-      --bg: #f7f9fe;
-      --panel: rgba(255, 255, 255, 0.88);
-      --ink: #14324c;
-      --muted: #5a7189;
-      --line: rgba(19, 51, 79, 0.12);
-      --navy: #17334f;
-      --teal: #2a6f7d;
-      --coral: #f37d67;
-      --gold: #d4a85f;
-      --shadow: 0 18px 48px rgba(23, 51, 79, 0.08);
-      --radius: 24px;
+      --paper: #f7f3ea;
+      --paper-strong: #efe7da;
+      --paper-soft: #fcfaf6;
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-strong: rgba(255, 255, 255, 0.92);
+      --ink: #1f2928;
+      --muted: #61716c;
+      --line: rgba(27, 48, 34, 0.12);
+      --pine: #1f4f46;
+      --pine-deep: #173932;
+      --sage: #7f9f90;
+      --slate: #4f6270;
+      --mist: #dce7ea;
+      --sand: #dcc9b2;
+      --clay: #b66553;
+      --gold: #b08a52;
+      --shadow: 0 24px 60px rgba(20, 36, 30, 0.08);
+      --soft-shadow: 0 10px 28px rgba(20, 36, 30, 0.05);
+      --radius: 28px;
+      --radius-lg: 38px;
     }}
     * {{ box-sizing: border-box; }}
+    html {{ scroll-behavior: smooth; }}
     body {{
       margin: 0;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(42, 111, 125, 0.12), transparent 32rem),
-        radial-gradient(circle at top right, rgba(243, 125, 103, 0.12), transparent 26rem),
-        linear-gradient(180deg, #fbfcff 0%, var(--bg) 48%, #eef4fb 100%);
-      font-family: "Manrope", "Segoe UI", sans-serif;
-      line-height: 1.5;
+        radial-gradient(circle at top left, rgba(127, 159, 144, 0.18), transparent 28rem),
+        radial-gradient(circle at top right, rgba(79, 98, 112, 0.18), transparent 24rem),
+        linear-gradient(180deg, #fdfaf6 0%, var(--paper) 36%, #f3ece1 100%);
+      font-family: "Public Sans", "Segoe UI", sans-serif;
+      line-height: 1.55;
     }}
-    a {{ color: var(--navy); }}
+    a {{
+      color: var(--pine);
+      text-underline-offset: 0.14em;
+    }}
     .shell {{
-      max-width: 1280px;
+      max-width: 1380px;
       margin: 0 auto;
-      padding: 32px 20px 72px;
+      padding: 28px 18px 72px;
     }}
     .hero {{
-      padding: 28px;
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 8px);
-      background: linear-gradient(145deg, rgba(255,255,255,0.92), rgba(240,246,252,0.88));
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 86% 10%, rgba(127, 159, 144, 0.18), transparent 18rem),
+        radial-gradient(circle at 100% 0%, rgba(79, 98, 112, 0.12), transparent 16rem),
+        linear-gradient(145deg, rgba(255,255,255,0.88), rgba(245, 239, 229, 0.78));
       box-shadow: var(--shadow);
+    }}
+    .hero::after {{
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: calc(var(--radius-lg) - 14px);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      pointer-events: none;
+    }}
+    .hero-layout {{
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.92fr);
+      gap: 22px;
+      align-items: stretch;
+    }}
+    .hero-copy-wrap,
+    .hero-panel-stack {{
+      position: relative;
+      z-index: 1;
     }}
     .eyebrow {{
       margin: 0 0 8px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.75rem;
-      color: var(--teal);
-      font-weight: 700;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+      color: var(--pine);
+      font-weight: 800;
     }}
     h1 {{
       margin: 0;
-      font-size: clamp(2.1rem, 5vw, 4rem);
-      line-height: 0.98;
-      max-width: 13ch;
+      max-width: 11ch;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2.7rem, 5vw, 4.9rem);
+      font-weight: 700;
+      line-height: 0.96;
+      letter-spacing: -0.04em;
     }}
     .hero-copy {{
-      max-width: 78ch;
+      max-width: 64ch;
       color: var(--muted);
-      margin: 16px 0 16px;
+      margin: 18px 0 0;
+      font-size: 1.03rem;
     }}
-    .hero-meta {{
+    .hero-meta-list {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 22px 0 0;
+    }}
+    .hero-meta-list span {{
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--muted);
+      font-size: 0.9rem;
+      box-shadow: inset 0 0 0 1px rgba(27, 48, 34, 0.06);
+    }}
+    .hero-panel-stack {{
+      display: grid;
+      gap: 14px;
+    }}
+    .hero-panel {{
+      padding: 18px 20px;
+      border-radius: calc(var(--radius) - 6px);
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--soft-shadow);
+    }}
+    .panel-label {{
+      margin: 0;
+      color: var(--pine);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      font-weight: 800;
+    }}
+    .panel-value {{
+      margin: 10px 0 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.65rem;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }}
+    .panel-copy {{
+      margin: 10px 0 0;
       color: var(--muted);
       font-size: 0.95rem;
+    }}
+    .rail-snapshot-grid {{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }}
+    .rail-snapshot {{
+      padding: 18px;
+      border-radius: calc(var(--radius) - 10px);
+      min-height: 172px;
+      box-shadow: var(--soft-shadow);
+    }}
+    .rail-snapshot.core {{
+      background: linear-gradient(180deg, rgba(231, 242, 237, 0.95), rgba(255, 255, 255, 0.82));
+    }}
+    .rail-snapshot.frontier {{
+      background: linear-gradient(180deg, rgba(229, 235, 239, 0.95), rgba(255, 255, 255, 0.82));
+    }}
+    .rail-snapshot strong {{
+      display: block;
+      margin-top: 12px;
+      font-family: "Manrope", "Public Sans", sans-serif;
+      font-size: 2.1rem;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }}
+    .rail-snapshot p {{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.93rem;
     }}
     .jump-nav {{
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 18px;
+      margin-top: 24px;
     }}
     .jump-nav a {{
       text-decoration: none;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(23, 51, 79, 0.06);
-      border: 1px solid rgba(23, 51, 79, 0.08);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: inset 0 0 0 1px rgba(27, 48, 34, 0.07);
       color: var(--ink);
       font-weight: 700;
+      transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+    }}
+    .jump-nav a:hover {{
+      transform: translateY(-1px);
+      background: rgba(31, 79, 70, 0.12);
+      color: var(--pine-deep);
     }}
     .summary-grid, .lens-grid, .movement-summary {{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 14px;
-      margin-top: 22px;
+      margin-top: 24px;
     }}
     .summary-card, .lens-card, .card, .report-panel, .mini-card {{
-      border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--panel);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--soft-shadow);
     }}
     .summary-card, .lens-card {{
-      padding: 16px 18px;
+      padding: 18px 18px 16px;
     }}
     .summary-card span {{
       display: block;
       color: var(--muted);
-      font-size: 0.9rem;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
     }}
     .summary-card strong {{
       display: block;
-      margin-top: 4px;
-      font-size: 1.8rem;
+      margin-top: 10px;
+      font-family: "Manrope", "Public Sans", sans-serif;
+      font-size: 2rem;
       line-height: 1;
+      letter-spacing: -0.04em;
     }}
     .lens-card strong {{
       display: block;
       font-size: 1rem;
+      font-family: "Manrope", "Public Sans", sans-serif;
     }}
     .lens-card p {{
       margin: 8px 0 0;
       color: var(--muted);
       font-size: 0.92rem;
     }}
+    .rail-band {{
+      margin-top: 28px;
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--soft-shadow);
+    }}
+    .rail-band-core {{
+      background: linear-gradient(180deg, rgba(239, 246, 242, 0.78), rgba(255, 255, 255, 0.6));
+    }}
+    .rail-band-frontier {{
+      background: linear-gradient(180deg, rgba(233, 238, 242, 0.84), rgba(255, 255, 255, 0.62));
+    }}
+    .rail-band-neutral {{
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(247, 243, 234, 0.76));
+    }}
+    .rail-intro {{
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }}
+    .rail-intro h2 {{
+      margin: 0;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.9rem, 3vw, 2.9rem);
+      line-height: 1.03;
+      letter-spacing: -0.03em;
+    }}
+    .rail-intro-copy {{
+      margin: 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }}
     .section {{
-      margin-top: 32px;
+      margin-top: 28px;
     }}
     .section-head {{
       display: flex;
       align-items: end;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }}
     .section-head h2 {{
       margin: 0;
-      font-size: 1.8rem;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.55rem, 2vw, 2.15rem);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
     }}
     .section-copy {{
       margin: 6px 0 0;
@@ -512,48 +702,98 @@ def render_index(
       max-width: 68ch;
     }}
     .section-count {{
-      font-size: 2.2rem;
+      font-family: "Manrope", "Public Sans", sans-serif;
+      font-size: 2.4rem;
       font-weight: 800;
-      color: rgba(23, 51, 79, 0.22);
+      color: rgba(31, 79, 70, 0.18);
+      letter-spacing: -0.05em;
     }}
     .card-grid, .mini-grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
     }}
     .mini-grid {{
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }}
     .card, .mini-card {{
-      padding: 18px;
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+    }}
+    .card::before, .mini-card::before {{
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
     }}
     .core-card {{
-      border-left: 4px solid rgba(42, 111, 125, 0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(247, 252, 249, 0.84));
+    }}
+    .core-card::before {{
+      background: linear-gradient(90deg, rgba(31, 79, 70, 0.9), rgba(127, 159, 144, 0.28));
     }}
     .frontier-card {{
-      border-left: 4px solid rgba(243, 125, 103, 0.2);
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(245, 248, 250, 0.86));
+    }}
+    .frontier-card::before {{
+      background: linear-gradient(90deg, rgba(79, 98, 112, 0.9), rgba(176, 138, 82, 0.28));
     }}
     .employer-card {{
-      border-left: 4px solid rgba(212, 168, 95, 0.24);
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250, 247, 241, 0.86));
+    }}
+    .employer-card::before {{
+      background: linear-gradient(90deg, rgba(176, 138, 82, 0.9), rgba(127, 159, 144, 0.24));
     }}
     .card-top {{
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }}
     .card h3, .mini-card h4 {{
       margin: 0 0 10px;
-      font-size: 1.15rem;
-      line-height: 1.25;
+      font-family: "Manrope", "Public Sans", sans-serif;
+      font-size: 1.16rem;
+      line-height: 1.28;
+      letter-spacing: -0.025em;
     }}
     .mini-card h4 {{
       font-size: 1rem;
     }}
-    .meta-row, .profile-row, .source-row, .lens-row, .manual-note, .reason-title {{
+    .source-row, .lens-row, .manual-note, .reason-title {{
       margin: 0 0 12px;
       color: var(--muted);
       font-size: 0.95rem;
+    }}
+    .detail-list {{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 12px;
+      margin: 0 0 12px;
+    }}
+    .detail-list div {{
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(247, 243, 234, 0.64);
+    }}
+    .detail-list-secondary div {{
+      background: rgba(239, 246, 242, 0.54);
+    }}
+    .detail-list dt {{
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+    }}
+    .detail-list dd {{
+      margin: 8px 0 0;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 600;
+      line-height: 1.35;
     }}
     .tag-row {{
       display: flex;
@@ -566,25 +806,26 @@ def render_index(
       align-items: center;
       padding: 6px 10px;
       border-radius: 999px;
-      font-size: 0.77rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }}
-    .badge-priority {{ background: rgba(243, 125, 103, 0.14); color: #9e3f2e; }}
-    .badge-bridge {{ background: rgba(42, 111, 125, 0.14); color: #1f626f; }}
-    .badge-watch, .badge-strategic_watch {{ background: rgba(212, 168, 95, 0.18); color: #8f6426; }}
-    .badge-long_shot, .badge-low_fit {{ background: rgba(90, 113, 137, 0.14); color: #506476; }}
-    .badge-target {{ background: rgba(19, 51, 79, 0.14); color: #17334f; }}
-    .badge-ecosystem_signal, .badge-signal {{ background: rgba(243, 125, 103, 0.12); color: #9e3f2e; }}
-    .badge-saved {{ background: rgba(42, 111, 125, 0.18); color: #1f626f; }}
-    .badge-starred {{ background: rgba(212, 168, 95, 0.22); color: #8f6426; }}
-    .badge-dismissed {{ background: rgba(120, 69, 69, 0.12); color: #8f4d4d; }}
-    .badge-tag {{ background: rgba(23, 51, 79, 0.06); color: var(--ink); }}
-    .badge-expired {{ background: rgba(120, 69, 69, 0.12); color: #8f4d4d; }}
-    .badge-stale {{ background: rgba(103, 86, 33, 0.16); color: #7a6222; }}
-    .badge-ok {{ background: rgba(42, 111, 125, 0.14); color: #1f626f; }}
-    .badge-core-track {{ background: rgba(42, 111, 125, 0.12); color: #1f626f; }}
-    .badge-frontier-track {{ background: rgba(243, 125, 103, 0.12); color: #9e3f2e; }}
+    .badge-priority {{ background: rgba(182, 101, 83, 0.14); color: #934d3f; }}
+    .badge-bridge {{ background: rgba(31, 79, 70, 0.14); color: var(--pine); }}
+    .badge-watch, .badge-strategic_watch {{ background: rgba(176, 138, 82, 0.18); color: #83633a; }}
+    .badge-long_shot, .badge-low_fit {{ background: rgba(79, 98, 112, 0.14); color: var(--slate); }}
+    .badge-target {{ background: rgba(79, 98, 112, 0.14); color: var(--slate); }}
+    .badge-ecosystem_signal, .badge-signal {{ background: rgba(127, 159, 144, 0.18); color: #4c685c; }}
+    .badge-saved {{ background: rgba(31, 79, 70, 0.16); color: var(--pine); }}
+    .badge-starred {{ background: rgba(176, 138, 82, 0.2); color: #7d6037; }}
+    .badge-dismissed {{ background: rgba(128, 86, 74, 0.12); color: #85564a; }}
+    .badge-tag {{ background: rgba(31, 79, 70, 0.08); color: var(--ink); }}
+    .badge-expired {{ background: rgba(128, 86, 74, 0.12); color: #85564a; }}
+    .badge-stale {{ background: rgba(176, 138, 82, 0.16); color: #83633a; }}
+    .badge-ok {{ background: rgba(31, 79, 70, 0.14); color: var(--pine); }}
+    .badge-core-track {{ background: rgba(31, 79, 70, 0.1); color: var(--pine); }}
+    .badge-frontier-track {{ background: rgba(79, 98, 112, 0.1); color: var(--slate); }}
     .reason-list {{
       margin: 0;
       padding-left: 18px;
@@ -597,13 +838,24 @@ def render_index(
       margin: 14px 0 0;
       font-weight: 800;
     }}
+    .card-actions a {{
+      text-decoration: none;
+    }}
     .mini-kicker {{
       margin: 0 0 8px;
-      color: var(--teal);
+      color: var(--pine);
       text-transform: uppercase;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 800;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
+    }}
+    .subsection-kicker {{
+      margin: 24px 0 12px;
+      color: var(--pine);
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
     }}
     .report-panel {{
       padding: 12px;
@@ -629,107 +881,188 @@ def render_index(
       color: var(--muted);
     }}
     .preference-boost {{
-      color: #1f626f;
+      color: var(--pine);
     }}
     .preference-downweight {{
-      color: #8f4d4d;
+      color: #85564a;
+    }}
+    @media (max-width: 980px) {{
+      .hero-layout {{
+        grid-template-columns: 1fr;
+      }}
+      .rail-snapshot-grid {{
+        grid-template-columns: 1fr 1fr;
+      }}
     }}
     @media (max-width: 720px) {{
-      .shell {{ padding: 18px 14px 56px; }}
-      .hero {{ padding: 20px; }}
-      .section-head {{ flex-direction: column; align-items: start; }}
-      .section-count {{ font-size: 1.6rem; }}
+      .shell {{ padding: 14px 12px 52px; }}
+      .hero, .rail-band {{ padding: 18px; }}
+      h1 {{ font-size: clamp(2.25rem, 12vw, 3.2rem); }}
+      .hero-meta-list {{
+        gap: 8px;
+      }}
+      .summary-grid, .lens-grid, .movement-summary, .card-grid, .mini-grid, .rail-snapshot-grid {{
+        grid-template-columns: 1fr;
+      }}
+      .detail-list {{
+        grid-template-columns: 1fr;
+      }}
+      .section-head {{
+        flex-direction: column;
+        align-items: start;
+      }}
+      .section-count {{
+        font-size: 1.8rem;
+      }}
     }}
   </style>
 </head>
 <body>
   <main class="shell">
     <section class="hero">
-      <p class="eyebrow">Career navigation dashboard</p>
-      <h1>Use the radar to decide what to pursue now, what to save, and what to work toward next.</h1>
-      <p class="hero-copy">
-        The base radar still collects and scores leads across the core Oregon RN rail and the frontier ecosystem rail.
-        This layer adds decision support on top: profile lenses, employer dossiers, manual curation, and movement tracking.
-      </p>
-      <p class="hero-meta">Generated {_format_datetime_label(generated_at)} · Active profile {escape(_display_label(active_profile))} · Preferred geos {escape(preferred_geo_scopes or 'Not set')} · Sources healthy {summary.get('healthy_source_count', 0)} · failed {summary.get('failed_source_count', 0)}</p>
-      <nav class="jump-nav" aria-label="Section jumps">
-        <a href="#top-picks-right-now">Top Picks Right Now</a>
-        <a href="#best-bridge-bets">Best Bridge Bets</a>
-        <a href="#frontier-bets">Frontier Bets</a>
-        <a href="#employers-to-watch">Employers To Watch</a>
-        <a href="#what-changed-since-last-run">What Changed Since Last Run</a>
-        <a href="#saved-leads-starred-employers">Saved Leads / Starred Employers</a>
-        <a href="#source-health">Source Health</a>
-        <a href="score-audit.html">Score Audit</a>
-      </nav>
+      <div class="hero-layout">
+        <div class="hero-copy-wrap">
+          <p class="eyebrow">Career navigation dashboard</p>
+          <h1>Oregon-now nursing decisions on one rail. Frontier transition bets on the other.</h1>
+          <p class="hero-copy">
+            RN Opportunity Radar is no longer just a collector. It separates practical Oregon RN moves from longer-horizon nursing-tech movement,
+            then layers employer dossiers, manual curation, and profile lenses on top so the next step is easier to see.
+          </p>
+          <div class="hero-meta-list">
+            <span>Generated {_format_datetime_label(generated_at)}</span>
+            <span>Active profile {escape(_display_label(active_profile))}</span>
+            <span>Preferred geos {escape(preferred_geo_scopes or 'Not set')}</span>
+            <span>Sources healthy {summary.get('healthy_source_count', 0)}</span>
+            <span>Failed {summary.get('failed_source_count', 0)}</span>
+          </div>
+          <nav class="jump-nav" aria-label="Section jumps">
+            <a href="#top-picks-right-now">Top Picks Right Now</a>
+            <a href="#best-bridge-bets">Best Bridge Bets</a>
+            <a href="#frontier-bets">Frontier Bets</a>
+            <a href="#employers-to-watch">Employers To Watch</a>
+            <a href="#what-changed-since-last-run">What Changed Since Last Run</a>
+            <a href="#saved-leads-starred-employers">Saved Leads / Starred Employers</a>
+            <a href="#source-health">Source Health</a>
+            <a href="score-audit.html">Score Audit</a>
+          </nav>
+        </div>
+        <aside class="hero-panel-stack">
+          <div class="hero-panel">
+            <p class="panel-label">Current posture</p>
+            <p class="panel-value">Practical Oregon fit first. Frontier leverage second.</p>
+            <p class="panel-copy">
+              The dashboard is tuned for realistic RN options while reinstatement is in focus, without losing sight of implementation, informatics,
+              clinical-success, and product-clinical paths that matter next.
+            </p>
+          </div>
+          <div class="rail-snapshot-grid">
+            <div class="rail-snapshot core">
+              <p class="panel-label">Core Oregon RN</p>
+              <strong>{core_active_count}</strong>
+              <p>{core_priority_count} priority leads and {core_bridge_count} bridge leads remain in the practical rail.</p>
+            </div>
+            <div class="rail-snapshot frontier">
+              <p class="panel-label">Frontier Ecosystem</p>
+              <strong>{frontier_active_count}</strong>
+              <p>{frontier_target_count} target roles and {frontier_watch_count} strategic watch or ecosystem signals are separated here.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
       <div class="summary-grid">{summary_cards}</div>
       <div class="lens-grid">{lens_cards}</div>
     </section>
 
-    {_section_title("Top Picks Right Now", len(top_picks), "top-picks-right-now", "This uses the Oregon Now lens to surface the most realistic near-term work without changing the underlying base score.")}
-      {_render_card_grid(top_picks, "No top picks are available in this run.", profile_name="oregon_now")}
-    </section>
-
-    {_section_title("Best Bridge Bets", len(bridge_bets), "best-bridge-bets", "These are the strongest implementation, informatics, workflow, quality, and clinical-systems bets under the Bridge To Informatics lens.")}
-      {_render_card_grid(bridge_bets, "No bridge bets are available in this run.", profile_name="bridge_to_informatics")}
-    </section>
-
-    {_section_title("Frontier Bets", len(frontier_bets), "frontier-bets", "These are the strongest RN-leveraged vendor and frontier roles under the Frontier Transition lens.")}
-      {_render_card_grid(frontier_bets, "No frontier bets are available in this run.", profile_name="frontier_transition")}
-    </section>
-
-    {_section_title("Employers To Watch", len(employers_to_watch), "employers-to-watch", "Employer dossiers combine both rails so you can see which organizations matter most, where they show up, and why they are worth attention.")}
-      {_render_employer_grid(employers_to_watch, "No employer rollups are available in this run.")}
-    </section>
-
-    {_section_title("What Changed Since Last Run", int(movement_summary.get('new_high_signal_count', 0)) + int(movement_summary.get('promoted_count', 0)), "what-changed-since-last-run", "Daily movement tracking highlights new high-signal leads, promotions, frontier additions, vanishing leads, and employers with growing activity.")}
-      <div class="movement-summary">
-        <div class="summary-card"><span>New high-signal leads</span><strong>{movement_summary.get('new_high_signal_count', 0)}</strong></div>
-        <div class="summary-card"><span>Promoted leads</span><strong>{movement_summary.get('promoted_count', 0)}</strong></div>
-        <div class="summary-card"><span>Vanished leads</span><strong>{movement_summary.get('vanished_count', 0)}</strong></div>
-        <div class="summary-card"><span>Growing employers</span><strong>{movement_summary.get('growing_employer_count', 0)}</strong></div>
-        <div class="summary-card"><span>New frontier targets</span><strong>{movement_summary.get('new_frontier_target_count', 0)}</strong></div>
-        <div class="summary-card"><span>Saved lead changes</span><strong>{movement_summary.get('saved_lead_change_count', 0)}</strong></div>
+    <div class="rail-band rail-band-core">
+      <div class="rail-intro">
+        <p class="eyebrow">Core rail</p>
+        <h2>Core Oregon RN Opportunities</h2>
+        <p class="rail-intro-copy">
+          This is the practical rail: local RN work, ICU-adjacent roles, care coordination, and bridge positions that are actionable without letting the frontier track blur the near-term picture.
+        </p>
       </div>
-      <h3 class="eyebrow" style="margin-top:20px;">New high-signal leads</h3>
-      {_movement_lead_list(movement.get('new_high_signal_leads', []), 'oregon_now')}
-      <h3 class="eyebrow" style="margin-top:20px;">Promoted leads</h3>
-      {_movement_lead_list(movement.get('promoted_leads', []), 'bridge_to_informatics')}
-      <h3 class="eyebrow" style="margin-top:20px;">New frontier targets</h3>
-      {_movement_lead_list(movement.get('new_frontier_targets', []), 'frontier_transition')}
-      <h3 class="eyebrow" style="margin-top:20px;">Employers with increasing activity</h3>
-      {_movement_employer_list(movement.get('employers_with_increasing_activity', []))}
-      <h3 class="eyebrow" style="margin-top:20px;">Recently vanished</h3>
-      {_movement_lead_list(movement.get('vanished_leads', []), 'oregon_now')}
-    </section>
 
-    {_section_title("Saved Leads / Starred Employers", len(saved_leads) + len(starred_employers), "saved-leads-starred-employers", "Manual curation keeps the tool personal: save leads, hide noise, and mark employers that matter to you.")}
-      <h3 class="eyebrow" style="margin-top:0;">Saved leads</h3>
-      {_render_card_grid(saved_leads[:8], "No saved leads yet. Add them in data/manual/saved_leads.json.")}
-      <h3 class="eyebrow" style="margin-top:20px;">Starred employers</h3>
-      {_render_employer_grid(starred_employers[:6], "No starred employers yet. Add them in data/manual/employer_notes.json.")}
-    </section>
+      {_section_title("Top Picks Right Now", len(top_picks), "top-picks-right-now", "This uses the Oregon Now lens to surface the most realistic near-term work without changing the underlying base score.")}
+        {_render_card_grid(top_picks, "No top picks are available in this run.", profile_name="oregon_now")}
+      </section>
 
-    {_section_title("Source Health", len(reports), "source-health", "Per-source health and volume stay visible so the navigation layer remains grounded in honest collection quality.")}
-      <div class="report-panel">
-        <table>
-          <thead>
-            <tr>
-              <th>Source</th>
-              <th>Track</th>
-              <th>Status</th>
-              <th>Fetched</th>
-              <th>Relevant</th>
-              <th>Browser</th>
-              <th>Notes / Errors</th>
-            </tr>
-          </thead>
-          <tbody>
-            {report_rows}
-          </tbody>
-        </table>
+      {_section_title("Best Bridge Bets", len(bridge_bets), "best-bridge-bets", "These are the strongest implementation, informatics, workflow, quality, and clinical-systems bets under the Bridge To Informatics lens.")}
+        {_render_card_grid(bridge_bets, "No bridge bets are available in this run.", profile_name="bridge_to_informatics")}
+      </section>
+    </div>
+
+    <div class="rail-band rail-band-frontier">
+      <div class="rail-intro">
+        <p class="eyebrow">Frontier rail</p>
+        <h2>Frontier Transition And Employer Strategy</h2>
+        <p class="rail-intro-copy">
+          This rail stays intentionally separate so remote-friendly clinical-success, implementation, product-clinical, and ecosystem signals can guide long-horizon movement without contaminating Oregon-now decisions.
+        </p>
       </div>
-    </section>
+
+      {_section_title("Frontier Bets", len(frontier_bets), "frontier-bets", "These are the strongest RN-leveraged vendor and frontier roles under the Frontier Transition lens.")}
+        {_render_card_grid(frontier_bets, "No frontier bets are available in this run.", profile_name="frontier_transition")}
+      </section>
+
+      {_section_title("Employers To Watch", len(employers_to_watch), "employers-to-watch", "Employer dossiers combine both rails so you can see which organizations matter most, where they show up, and why they are worth attention.")}
+        {_render_employer_grid(employers_to_watch, "No employer rollups are available in this run.")}
+      </section>
+    </div>
+
+    <div class="rail-band rail-band-neutral">
+      {_section_title("What Changed Since Last Run", int(movement_summary.get('new_high_signal_count', 0)) + int(movement_summary.get('promoted_count', 0)), "what-changed-since-last-run", "Daily movement tracking highlights new high-signal leads, promotions, frontier additions, vanishing leads, and employers with growing activity.")}
+        <div class="movement-summary">
+          <div class="summary-card"><span>New high-signal leads</span><strong>{movement_summary.get('new_high_signal_count', 0)}</strong></div>
+          <div class="summary-card"><span>Promoted leads</span><strong>{movement_summary.get('promoted_count', 0)}</strong></div>
+          <div class="summary-card"><span>Vanished leads</span><strong>{movement_summary.get('vanished_count', 0)}</strong></div>
+          <div class="summary-card"><span>Growing employers</span><strong>{movement_summary.get('growing_employer_count', 0)}</strong></div>
+          <div class="summary-card"><span>New frontier targets</span><strong>{movement_summary.get('new_frontier_target_count', 0)}</strong></div>
+          <div class="summary-card"><span>Saved lead changes</span><strong>{movement_summary.get('saved_lead_change_count', 0)}</strong></div>
+        </div>
+        <h3 class="subsection-kicker">New high-signal leads</h3>
+        {_movement_lead_list(movement.get('new_high_signal_leads', []), 'oregon_now')}
+        <h3 class="subsection-kicker">Promoted leads</h3>
+        {_movement_lead_list(movement.get('promoted_leads', []), 'bridge_to_informatics')}
+        <h3 class="subsection-kicker">New frontier targets</h3>
+        {_movement_lead_list(movement.get('new_frontier_targets', []), 'frontier_transition')}
+        <h3 class="subsection-kicker">Employers with increasing activity</h3>
+        {_movement_employer_list(movement.get('employers_with_increasing_activity', []))}
+        <h3 class="subsection-kicker">Recently vanished</h3>
+        {_movement_lead_list(movement.get('vanished_leads', []), 'oregon_now')}
+      </section>
+    </div>
+
+    <div class="rail-band rail-band-neutral">
+      {_section_title("Saved Leads / Starred Employers", len(saved_leads) + len(starred_employers), "saved-leads-starred-employers", "Manual curation keeps the tool personal: save leads, hide noise, and mark employers that matter to you.")}
+        <h3 class="subsection-kicker" style="margin-top:0;">Saved leads</h3>
+        {_render_card_grid(saved_leads[:8], "No saved leads yet. Add them in data/manual/saved_leads.json.")}
+        <h3 class="subsection-kicker">Starred employers</h3>
+        {_render_employer_grid(starred_employers[:6], "No starred employers yet. Add them in data/manual/employer_notes.json.")}
+      </section>
+    </div>
+
+    <div class="rail-band rail-band-neutral">
+      {_section_title("Source Health", len(reports), "source-health", "Per-source health and volume stay visible so the navigation layer remains grounded in honest collection quality.")}
+        <div class="report-panel">
+          <table>
+            <thead>
+              <tr>
+                <th>Source</th>
+                <th>Track</th>
+                <th>Status</th>
+                <th>Fetched</th>
+                <th>Relevant</th>
+                <th>Browser</th>
+                <th>Notes / Errors</th>
+              </tr>
+            </thead>
+            <tbody>
+              {report_rows}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
   </main>
 </body>
 </html>"""
