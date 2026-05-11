@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-05-10T07:22:37.299336-07:00",
+  "generated_at": "2026-05-11T09:10:39.051126-07:00",
   "summary": {
     "priority_count": 36,
-    "bridge_count": 63,
+    "bridge_count": 62,
     "target_count": 17,
     "strategic_watch_count": 4,
     "ecosystem_signal_count": 9,
@@ -43,7 +43,7 @@
     "remote_friendly": 17
   },
   "movement_summary": {
-    "new_high_signal_count": 0,
+    "new_high_signal_count": 1,
     "promoted_count": 0,
     "vanished_count": 1,
     "growing_employer_count": 0,
@@ -3532,99 +3532,6 @@
       }
     },
     {
-      "lead_key": "kaiser_northwest_nursing:243b8a28cc3c33c365bf1fa5778ff9dbaf227388",
-      "lead_type": "job",
-      "track": "core_rn_oregon",
-      "subtrack": "health_system",
-      "horizon": "post_reinstatement",
-      "geo_scope": "oregon",
-      "rn_leverage_type": "direct_clinical",
-      "relocation_risk": "none",
-      "bucket": "bridge",
-      "score": 119,
-      "title": "Operating Room RN - CNOR - First Assistant",
-      "company": "Kaiser Permanente",
-      "source_key": "kaiser_northwest_nursing",
-      "source_name": "Kaiser Northwest Nursing Careers",
-      "location": "Clackamas, Oregon, Onsite, Full-time, Day",
-      "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/operating-room-rn-cnor-first-assistant/641/87497053120",
-      "reasons": [
-        "job collected from a tracked source",
-        "title matches 'rn '",
-        "title matches 'operating room rn'",
-        "priority location match: oregon",
-        "employer boost for Kaiser Permanente",
-        "generic bedside RN volume is intentionally demoted below specialized or bridge roles"
-      ],
-      "tags": [
-        "RN",
-        "Oregon",
-        "Kaiser Permanente"
-      ],
-      "profile_scores": {
-        "oregon_now": 290,
-        "bridge_to_informatics": 189,
-        "frontier_transition": 119
-      },
-      "profile_reasons": {
-        "oregon_now": [
-          "profile preferences favor Kaiser Permanente",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ],
-        "bridge_to_informatics": [
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high",
-          "base bucket already indicates a bridge-capable role",
-          "core-rail bridge roles are especially useful stepping stones"
-        ],
-        "frontier_transition": [
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ]
-      },
-      "profile_preference_deltas": {
-        "oregon_now": 59,
-        "bridge_to_informatics": 38,
-        "frontier_transition": 22
-      },
-      "starred": false,
-      "saved": false,
-      "dismissed": false,
-      "pinned_reason": "",
-      "manual_notes": [],
-      "score_breakdown": {
-        "track": "core_rn_oregon",
-        "bucket_universe": "core_rn_oregon",
-        "title_score": 113,
-        "description_score": 0,
-        "rn_score": 0,
-        "location_score": 14,
-        "employer_score": 10,
-        "icu_score": 0,
-        "bridge_score": 0,
-        "signal_score": 0,
-        "frontier_fit_score": 0,
-        "leverage_score": 0,
-        "scope_score": 0,
-        "penalty_score": -18,
-        "final_score": 119,
-        "role_class": "direct_rn_generic",
-        "bucket_decision_notes": [
-          "Generic RN volume is capped below priority so bridge roles stay visible."
-        ],
-        "promoted_by_bridge_logic": false,
-        "demoted_generic_rn_volume": true,
-        "generic_rn_volume": true,
-        "engineering_heavy": false
-      }
-    },
-    {
       "lead_key": "oregon_nurse_career_center:4eb3ce7e34013c7c681ca08fed4e5933637b6058",
       "lead_type": "job",
       "track": "core_rn_oregon",
@@ -4769,6 +4676,99 @@
       "source_name": "Providence Oregon Careers",
       "location": "Medford, OR",
       "detail_url": "https://providence-oregon.jobs/medford-or/rn-emergency-services-09-fte-noc/19552461D316433F86A9E90C8C9517F3/job/",
+      "reasons": [
+        "job collected from a tracked source",
+        "title matches 'rn '",
+        "requirements mention 'registered nurse license'",
+        "employer boost for Providence",
+        "employer has active AI / informatics footprint",
+        "generic bedside RN volume is intentionally demoted below specialized or bridge roles"
+      ],
+      "tags": [
+        "RN",
+        "Providence"
+      ],
+      "profile_scores": {
+        "oregon_now": 267,
+        "bridge_to_informatics": 206,
+        "frontier_transition": 106
+      },
+      "profile_reasons": {
+        "oregon_now": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high"
+        ],
+        "bridge_to_informatics": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high",
+          "base bucket already indicates a bridge-capable role"
+        ],
+        "frontier_transition": [
+          "profile preferences favor Providence",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high"
+        ]
+      },
+      "profile_preference_deltas": {
+        "oregon_now": 59,
+        "bridge_to_informatics": 48,
+        "frontier_transition": 32
+      },
+      "starred": false,
+      "saved": false,
+      "dismissed": false,
+      "pinned_reason": "",
+      "manual_notes": [],
+      "score_breakdown": {
+        "track": "core_rn_oregon",
+        "bucket_universe": "core_rn_oregon",
+        "title_score": 58,
+        "description_score": 0,
+        "rn_score": 28,
+        "location_score": 0,
+        "employer_score": 28,
+        "icu_score": 0,
+        "bridge_score": 0,
+        "signal_score": 0,
+        "frontier_fit_score": 0,
+        "leverage_score": 0,
+        "scope_score": 0,
+        "penalty_score": -18,
+        "final_score": 96,
+        "role_class": "direct_rn_generic",
+        "bucket_decision_notes": [
+          "Generic RN volume is capped below priority so bridge roles stay visible."
+        ],
+        "promoted_by_bridge_logic": false,
+        "demoted_generic_rn_volume": true,
+        "generic_rn_volume": true,
+        "engineering_heavy": false
+      }
+    },
+    {
+      "lead_key": "providence_oregon:2ddef64d54ffd1b30a428f537f3b9ed764a3b7fd",
+      "lead_type": "job",
+      "track": "core_rn_oregon",
+      "subtrack": "health_system",
+      "horizon": "post_reinstatement",
+      "geo_scope": "oregon",
+      "rn_leverage_type": "direct_clinical",
+      "relocation_risk": "none",
+      "bucket": "bridge",
+      "score": 96,
+      "title": "RN - Endoscopy Per Diem On-Call Day",
+      "company": "Providence",
+      "source_key": "providence_oregon",
+      "source_name": "Providence Oregon Careers",
+      "location": "Newberg, OR",
+      "detail_url": "https://providence-oregon.jobs/newberg-or/rn-endoscopy-per-diem-on-call-day/B2E0C66E50184440913B991208021B3B/job/",
       "reasons": [
         "job collected from a tracked source",
         "title matches 'rn '",
@@ -18592,7 +18592,7 @@
       ],
       "bucket_counts": {
         "priority": 9,
-        "bridge": 1
+        "watch": 1
       },
       "track_counts": {
         "core_rn_oregon": 10
@@ -18602,7 +18602,7 @@
         "Salem, Oregon, Onsite, Call-in/On-Call, Day",
         "Portland, OR, Onsite, Call-in/On-Call, Variable",
         "Portland, OR, Onsite, Call-in/On-Call, Day",
-        "Clackamas, Oregon, Onsite, Full-time, Day"
+        "Clackamas, Oregon, Hillsboro, Oregon, Onsite, Part-time, Variable"
       ],
       "innovation_signal_presence": false,
       "rn_leverage_types": [
@@ -18612,14 +18612,12 @@
       "employer_tags": [
         "manual_interest_high",
         "starred_employer",
-        "high_priority_employer",
-        "bridge_employer"
+        "high_priority_employer"
       ],
       "why_it_matters": [
         "Manual interest level is high.",
         "You manually marked this employer as interesting.",
         "Kaiser Permanente has actionable Oregon-now opportunities.",
-        "Kaiser Permanente is producing bridge-role inventory.",
         "Strongest RN leverage signal: implementation."
       ],
       "profile_highlights": {
@@ -18636,7 +18634,7 @@
         "Pacific Northwest practical option",
         "Pinned: good bridge role"
       ],
-      "employer_score": 190
+      "employer_score": 180
     },
     {
       "employer_key": "oregon health & science university",
@@ -19429,9 +19427,9 @@
       "source_class": "official",
       "bucket_counts": {
         "priority": 2,
-        "bridge": 1
+        "watch": 1
       },
-      "average_score": 111.67,
+      "average_score": 93.33,
       "active_kept_count": 3,
       "discarded_count": 0,
       "deduped_away_count": 0
@@ -19630,30 +19628,49 @@
     }
   },
   "movement": {
-    "generated_at": "2026-05-10T07:22:37.299336-07:00",
+    "generated_at": "2026-05-11T09:10:39.051126-07:00",
     "summary": {
-      "new_high_signal_count": 0,
+      "new_high_signal_count": 1,
       "promoted_count": 0,
       "vanished_count": 1,
       "growing_employer_count": 0,
       "new_frontier_target_count": 0,
       "saved_lead_change_count": 0
     },
-    "new_high_signal_leads": [],
+    "new_high_signal_leads": [
+      {
+        "lead_key": "kaiser_northwest_nursing:84c4861b843d5f8bb5a5bf07507a7249017ddd22",
+        "track": "core_rn_oregon",
+        "bucket": "watch",
+        "title": "RN New Grad Program Sunnyside and Westside Medical Center",
+        "company": "Kaiser Permanente",
+        "location": "Clackamas, Oregon, Hillsboro, Oregon, Onsite, Part-time, Variable",
+        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-new-grad-program-sunnyside-and-westside-medical-center/641/94960758176",
+        "profile_scores": {
+          "oregon_now": 217,
+          "bridge_to_informatics": 94,
+          "frontier_transition": 58
+        },
+        "starred": false,
+        "saved": false,
+        "dismissed": false,
+        "pinned_reason": ""
+      }
+    ],
     "promoted_leads": [],
     "vanished_leads": [
       {
-        "lead_key": "providence_oregon:97db908466366f06ccae17700f424c74314e90a3",
+        "lead_key": "kaiser_northwest_nursing:243b8a28cc3c33c365bf1fa5778ff9dbaf227388",
         "track": "core_rn_oregon",
         "bucket": "bridge",
-        "title": "RN - LVAD Cardiac Transplant",
-        "company": "Providence",
-        "location": "Portland, OR",
-        "detail_url": "https://providence-oregon.jobs/portland-or/rn-lvad-cardiac-transplant/EA7567294A83484B8A3EF82222989BAD/job/",
+        "title": "Operating Room RN - CNOR - First Assistant",
+        "company": "Kaiser Permanente",
+        "location": "Clackamas, Oregon, Onsite, Full-time, Day",
+        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/operating-room-rn-cnor-first-assistant/641/87497053120",
         "profile_scores": {
-          "oregon_now": 291,
-          "bridge_to_informatics": 230,
-          "frontier_transition": 130
+          "oregon_now": 290,
+          "bridge_to_informatics": 189,
+          "frontier_transition": 119
         },
         "starred": false,
         "saved": false,
