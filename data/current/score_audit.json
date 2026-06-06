@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-05T09:08:27.110280-07:00",
+  "generated_at": "2026-06-06T07:51:12.505627-07:00",
   "summary": {
-    "priority_count": 24,
+    "priority_count": 23,
     "bridge_count": 62,
-    "target_count": 19,
+    "target_count": 20,
     "strategic_watch_count": 3,
     "ecosystem_signal_count": 8,
     "starred_count": 0,
@@ -14,38 +14,38 @@
     "high_interest_employers": 3
   },
   "track_counts": {
-    "core_rn_oregon": 116,
-    "frontier_ecosystem": 30
+    "core_rn_oregon": 115,
+    "frontier_ecosystem": 31
   },
   "frontier_bucket_counts": {
-    "target": 19,
+    "target": 20,
     "strategic_watch": 3,
     "ecosystem_signal": 8
   },
   "subtrack_counts": {
-    "vendor": 22,
+    "vendor": 23,
     "research_innovation": 2,
     "health_system": 4,
     "venture_signal": 2
   },
   "geo_scope_counts": {
-    "remote_us": 24,
+    "remote_us": 25,
     "oregon": 6
   },
   "rn_leverage_type_counts": {
-    "clinical_success": 22,
+    "clinical_success": 23,
     "implementation": 4,
     "research": 2,
     "informatics": 1,
     "product_clinical": 1
   },
   "frontier_remote_vs_relocation": {
-    "remote_friendly": 19
+    "remote_friendly": 20
   },
   "movement_summary": {
     "new_high_signal_count": 5,
     "promoted_count": 0,
-    "vanished_count": 7,
+    "vanished_count": 4,
     "growing_employer_count": 2,
     "new_frontier_target_count": 1,
     "saved_lead_change_count": 0
@@ -1622,103 +1622,6 @@
       }
     },
     {
-      "lead_key": "ohsu_nursing:7ceada12861a439bda6e0cd0f9d6c0238b6361bc",
-      "lead_type": "job",
-      "track": "core_rn_oregon",
-      "subtrack": "health_system",
-      "horizon": "post_reinstatement",
-      "geo_scope": "oregon",
-      "rn_leverage_type": "implementation",
-      "relocation_risk": "none",
-      "bucket": "priority",
-      "score": 110,
-      "title": "Title RN, Pediatric Operating Room",
-      "company": "OHSU",
-      "source_key": "ohsu_nursing",
-      "source_name": "OHSU Nursing Jobs",
-      "location": "US-OR-Portland",
-      "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/37679/rn%2c-pediatric-operating-room/job?in_iframe=1",
-      "reasons": [
-        "job collected from a tracked source",
-        "title matches 'rn '",
-        "description includes 'quality improvement'",
-        "description includes 'research'",
-        "employer boost for OHSU",
-        "employer has active AI / informatics footprint"
-      ],
-      "tags": [
-        "RN",
-        "OHSU",
-        "Bridge",
-        "Informatics"
-      ],
-      "profile_scores": {
-        "oregon_now": 291,
-        "bridge_to_informatics": 259,
-        "frontier_transition": 165
-      },
-      "profile_reasons": {
-        "oregon_now": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ],
-        "bridge_to_informatics": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ],
-        "frontier_transition": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high",
-          "RN-leveraged vendor or workflow work is the target transition lane"
-        ]
-      },
-      "profile_preference_deltas": {
-        "oregon_now": 59,
-        "bridge_to_informatics": 57,
-        "frontier_transition": 41
-      },
-      "starred": false,
-      "saved": false,
-      "dismissed": false,
-      "pinned_reason": "",
-      "manual_notes": [],
-      "score_breakdown": {
-        "track": "core_rn_oregon",
-        "bucket_universe": "core_rn_oregon",
-        "title_score": 58,
-        "description_score": 24,
-        "rn_score": 0,
-        "location_score": 0,
-        "employer_score": 28,
-        "icu_score": 0,
-        "bridge_score": 0,
-        "signal_score": 0,
-        "frontier_fit_score": 0,
-        "leverage_score": 0,
-        "scope_score": 0,
-        "penalty_score": 0,
-        "final_score": 110,
-        "role_class": "bridge",
-        "bucket_decision_notes": [
-          "Bridge role clears the raised priority bar through RN leverage and tech relevance."
-        ],
-        "promoted_by_bridge_logic": false,
-        "demoted_generic_rn_volume": false,
-        "generic_rn_volume": false,
-        "engineering_heavy": false
-      }
-    },
-    {
       "lead_key": "providence_oregon:c54e5c04109760563550377e94116d52eaada7ca",
       "lead_type": "job",
       "track": "core_rn_oregon",
@@ -1805,6 +1708,105 @@
         "scope_score": 0,
         "penalty_score": 0,
         "final_score": 110,
+        "role_class": "bridge",
+        "bucket_decision_notes": [
+          "Bridge role clears the raised priority bar through RN leverage and tech relevance."
+        ],
+        "promoted_by_bridge_logic": false,
+        "demoted_generic_rn_volume": false,
+        "generic_rn_volume": false,
+        "engineering_heavy": false
+      }
+    },
+    {
+      "lead_key": "kaiser_northwest_nursing:c35c986b8959effa576a34f3e08eb0b0401964d7",
+      "lead_type": "job",
+      "track": "core_rn_oregon",
+      "subtrack": "health_system",
+      "horizon": "post_reinstatement",
+      "geo_scope": "oregon",
+      "rn_leverage_type": "implementation",
+      "relocation_risk": "none",
+      "bucket": "priority",
+      "score": 102,
+      "title": "RN - Medical Surgical (General) - KSMC 1S / 36 Hr / Days",
+      "company": "Kaiser Permanente",
+      "source_key": "kaiser_northwest_nursing",
+      "source_name": "Kaiser Northwest Nursing Careers",
+      "location": "Clackamas, Oregon, Onsite, Part-time, Day",
+      "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-medical-surgical-general-ksmc-1s-36-hr-days/641/96041326816",
+      "reasons": [
+        "job collected from a tracked source",
+        "title matches 'rn '",
+        "description includes 'implementation'",
+        "critical-care context includes 'acuity'",
+        "priority location match: oregon",
+        "employer boost for Kaiser Permanente"
+      ],
+      "tags": [
+        "RN",
+        "ICU",
+        "Oregon",
+        "Kaiser Permanente",
+        "Bridge",
+        "Informatics"
+      ],
+      "profile_scores": {
+        "oregon_now": 297,
+        "bridge_to_informatics": 253,
+        "frontier_transition": 159
+      },
+      "profile_reasons": {
+        "oregon_now": [
+          "profile preferences favor Kaiser Permanente",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency"
+        ],
+        "bridge_to_informatics": [
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency",
+          "manual employer interest level is high"
+        ],
+        "frontier_transition": [
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency",
+          "manual employer interest level is high",
+          "RN-leveraged vendor or workflow work is the target transition lane"
+        ]
+      },
+      "profile_preference_deltas": {
+        "oregon_now": 73,
+        "bridge_to_informatics": 59,
+        "frontier_transition": 43
+      },
+      "starred": false,
+      "saved": false,
+      "dismissed": false,
+      "pinned_reason": "",
+      "manual_notes": [],
+      "score_breakdown": {
+        "track": "core_rn_oregon",
+        "bucket_universe": "core_rn_oregon",
+        "title_score": 58,
+        "description_score": 14,
+        "rn_score": 0,
+        "location_score": 14,
+        "employer_score": 10,
+        "icu_score": 6,
+        "bridge_score": 0,
+        "signal_score": 0,
+        "frontier_fit_score": 0,
+        "leverage_score": 0,
+        "scope_score": 0,
+        "penalty_score": 0,
+        "final_score": 102,
         "role_class": "bridge",
         "bucket_decision_notes": [
           "Bridge role clears the raised priority bar through RN leverage and tech relevance."
@@ -2185,105 +2187,6 @@
         "location_score": 24,
         "employer_score": 10,
         "icu_score": 0,
-        "bridge_score": 0,
-        "signal_score": 0,
-        "frontier_fit_score": 0,
-        "leverage_score": 0,
-        "scope_score": 0,
-        "penalty_score": 0,
-        "final_score": 102,
-        "role_class": "bridge",
-        "bucket_decision_notes": [
-          "Bridge role clears the raised priority bar through RN leverage and tech relevance."
-        ],
-        "promoted_by_bridge_logic": false,
-        "demoted_generic_rn_volume": false,
-        "generic_rn_volume": false,
-        "engineering_heavy": false
-      }
-    },
-    {
-      "lead_key": "kaiser_northwest_nursing:dc16d62dab083825d3e293d7cab1dca7aa47a174",
-      "lead_type": "job",
-      "track": "core_rn_oregon",
-      "subtrack": "health_system",
-      "horizon": "post_reinstatement",
-      "geo_scope": "oregon",
-      "rn_leverage_type": "implementation",
-      "relocation_risk": "none",
-      "bucket": "priority",
-      "score": 102,
-      "title": "TEMP - RN, Emergency Department (36hrs, Nights)",
-      "company": "Kaiser Permanente",
-      "source_key": "kaiser_northwest_nursing",
-      "source_name": "Kaiser Northwest Nursing Careers",
-      "location": "Hillsboro, Oregon, Onsite, Part-time, Night",
-      "detail_url": "https://www.kaiserpermanentejobs.org/job/hillsboro/temp-rn-emergency-department-36hrs-nights/641/95434974720",
-      "reasons": [
-        "job collected from a tracked source",
-        "title matches 'rn '",
-        "description includes 'implementation'",
-        "critical-care context includes 'acuity'",
-        "priority location match: oregon",
-        "employer boost for Kaiser Permanente"
-      ],
-      "tags": [
-        "RN",
-        "ICU",
-        "Oregon",
-        "Kaiser Permanente",
-        "Bridge",
-        "Informatics"
-      ],
-      "profile_scores": {
-        "oregon_now": 297,
-        "bridge_to_informatics": 253,
-        "frontier_transition": 159
-      },
-      "profile_reasons": {
-        "oregon_now": [
-          "profile preferences favor Kaiser Permanente",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "profile preferences favor ICU or critical-care adjacency"
-        ],
-        "bridge_to_informatics": [
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "profile preferences favor ICU or critical-care adjacency",
-          "manual employer interest level is high"
-        ],
-        "frontier_transition": [
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "profile preferences favor ICU or critical-care adjacency",
-          "manual employer interest level is high",
-          "RN-leveraged vendor or workflow work is the target transition lane"
-        ]
-      },
-      "profile_preference_deltas": {
-        "oregon_now": 73,
-        "bridge_to_informatics": 59,
-        "frontier_transition": 43
-      },
-      "starred": false,
-      "saved": false,
-      "dismissed": false,
-      "pinned_reason": "",
-      "manual_notes": [],
-      "score_breakdown": {
-        "track": "core_rn_oregon",
-        "bucket_universe": "core_rn_oregon",
-        "title_score": 58,
-        "description_score": 14,
-        "rn_score": 0,
-        "location_score": 14,
-        "employer_score": 10,
-        "icu_score": 6,
         "bridge_score": 0,
         "signal_score": 0,
         "frontier_fit_score": 0,
@@ -2868,7 +2771,7 @@
       }
     },
     {
-      "lead_key": "providence_oregon:b85f0bc9bae6369baefc2d38fdcb44b668d17ec4",
+      "lead_key": "providence_oregon:914dcb1b8a36f2399467a2a93111e56ed1903e14",
       "lead_type": "job",
       "track": "core_rn_oregon",
       "subtrack": "health_system",
@@ -2883,7 +2786,7 @@
       "source_key": "providence_oregon",
       "source_name": "Providence Oregon Careers",
       "location": "Portland, OR",
-      "detail_url": "https://providence-oregon.jobs/portland-or/rn-medical-surgical/F21549F3D0894309AD04921EEE06C802/job/",
+      "detail_url": "https://providence-oregon.jobs/portland-or/rn-medical-surgical/B7C2AB0F1A254D92A89349D8A635E4DC/job/",
       "reasons": [
         "job collected from a tracked source",
         "title matches 'rn '",
@@ -5874,6 +5777,107 @@
       }
     },
     {
+      "lead_key": "viz_ai_frontier_roles:0977e9626776149a22b63e171c71003680843d36",
+      "lead_type": "job",
+      "track": "frontier_ecosystem",
+      "subtrack": "vendor",
+      "horizon": "now",
+      "geo_scope": "remote_us",
+      "rn_leverage_type": "clinical_success",
+      "relocation_risk": "none",
+      "bucket": "target",
+      "score": 120,
+      "title": "Senior Manager, Product Management (Neuro)",
+      "company": "Viz.ai",
+      "source_key": "viz_ai_frontier_roles",
+      "source_name": "Viz.ai Frontier Roles",
+      "location": "United States - Remote",
+      "detail_url": "https://jobs.ashbyhq.com/Viz.ai?ashby_jid=118607fc-7d8c-4260-9441-60d7f5a6a3dc",
+      "reasons": [
+        "curated frontier ecosystem role",
+        "frontier context includes 'workflow'",
+        "frontier context includes 'clinical'",
+        "frontier context includes 'ai'",
+        "bridge signal includes 'workflow'",
+        "bridge signal includes 'ai'",
+        "frontier employer boost for Viz.ai",
+        "role maps to RN leverage via clinical success"
+      ],
+      "tags": [
+        "Frontier",
+        "Remote",
+        "AI Care Coordination",
+        "Viz.ai",
+        "Clinical Success"
+      ],
+      "profile_scores": {
+        "oregon_now": 160,
+        "bridge_to_informatics": 257,
+        "frontier_transition": 283
+      },
+      "profile_reasons": {
+        "oregon_now": [
+          "profile preferences downweight this horizon",
+          "profile preferences favor remote-friendly frontier roles",
+          "manual employer interest marks this as frontier-relevant",
+          "frontier rail is intentionally secondary for Oregon-now decisions",
+          "bridge-capable work can still be actionable in the near term",
+          "low relocation risk improves near-term practicality"
+        ],
+        "bridge_to_informatics": [
+          "profile preferences favor Viz.ai",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences downweight this horizon",
+          "profile preferences favor remote-friendly frontier roles"
+        ],
+        "frontier_transition": [
+          "profile preferences favor Viz.ai",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences downweight this horizon",
+          "profile preferences favor remote-friendly frontier roles"
+        ]
+      },
+      "profile_preference_deltas": {
+        "oregon_now": 16,
+        "bridge_to_informatics": 51,
+        "frontier_transition": 53
+      },
+      "starred": false,
+      "saved": false,
+      "dismissed": false,
+      "pinned_reason": "",
+      "manual_notes": [],
+      "score_breakdown": {
+        "track": "frontier_ecosystem",
+        "bucket_universe": "frontier_ecosystem",
+        "title_score": 0,
+        "description_score": 32,
+        "rn_score": 0,
+        "location_score": 0,
+        "employer_score": 14,
+        "icu_score": 0,
+        "bridge_score": 24,
+        "signal_score": 0,
+        "frontier_fit_score": 0,
+        "leverage_score": 32,
+        "scope_score": 18,
+        "penalty_score": 0,
+        "final_score": 120,
+        "role_class": "clinical_success",
+        "bucket_decision_notes": [
+          "RN-leveraged frontier role is strong enough to stand as a real target."
+        ],
+        "promoted_by_bridge_logic": false,
+        "demoted_generic_rn_volume": false,
+        "generic_rn_volume": false,
+        "engineering_heavy": false
+      }
+    },
+    {
       "lead_key": "viz_ai_frontier_roles:e5217ef09dc2dc650725730969f52e8cd2a15caa",
       "lead_type": "job",
       "track": "frontier_ecosystem",
@@ -7945,6 +7949,105 @@
       }
     },
     {
+      "lead_key": "kaiser_northwest_nursing:c35c986b8959effa576a34f3e08eb0b0401964d7",
+      "lead_type": "job",
+      "track": "core_rn_oregon",
+      "subtrack": "health_system",
+      "horizon": "post_reinstatement",
+      "geo_scope": "oregon",
+      "rn_leverage_type": "implementation",
+      "relocation_risk": "none",
+      "bucket": "priority",
+      "score": 102,
+      "title": "RN - Medical Surgical (General) - KSMC 1S / 36 Hr / Days",
+      "company": "Kaiser Permanente",
+      "source_key": "kaiser_northwest_nursing",
+      "source_name": "Kaiser Northwest Nursing Careers",
+      "location": "Clackamas, Oregon, Onsite, Part-time, Day",
+      "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-medical-surgical-general-ksmc-1s-36-hr-days/641/96041326816",
+      "reasons": [
+        "job collected from a tracked source",
+        "title matches 'rn '",
+        "description includes 'implementation'",
+        "critical-care context includes 'acuity'",
+        "priority location match: oregon",
+        "employer boost for Kaiser Permanente"
+      ],
+      "tags": [
+        "RN",
+        "ICU",
+        "Oregon",
+        "Kaiser Permanente",
+        "Bridge",
+        "Informatics"
+      ],
+      "profile_scores": {
+        "oregon_now": 297,
+        "bridge_to_informatics": 253,
+        "frontier_transition": 159
+      },
+      "profile_reasons": {
+        "oregon_now": [
+          "profile preferences favor Kaiser Permanente",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency"
+        ],
+        "bridge_to_informatics": [
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency",
+          "manual employer interest level is high"
+        ],
+        "frontier_transition": [
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency",
+          "manual employer interest level is high",
+          "RN-leveraged vendor or workflow work is the target transition lane"
+        ]
+      },
+      "profile_preference_deltas": {
+        "oregon_now": 73,
+        "bridge_to_informatics": 59,
+        "frontier_transition": 43
+      },
+      "starred": false,
+      "saved": false,
+      "dismissed": false,
+      "pinned_reason": "",
+      "manual_notes": [],
+      "score_breakdown": {
+        "track": "core_rn_oregon",
+        "bucket_universe": "core_rn_oregon",
+        "title_score": 58,
+        "description_score": 14,
+        "rn_score": 0,
+        "location_score": 14,
+        "employer_score": 10,
+        "icu_score": 6,
+        "bridge_score": 0,
+        "signal_score": 0,
+        "frontier_fit_score": 0,
+        "leverage_score": 0,
+        "scope_score": 0,
+        "penalty_score": 0,
+        "final_score": 102,
+        "role_class": "bridge",
+        "bucket_decision_notes": [
+          "Bridge role clears the raised priority bar through RN leverage and tech relevance."
+        ],
+        "promoted_by_bridge_logic": false,
+        "demoted_generic_rn_volume": false,
+        "generic_rn_volume": false,
+        "engineering_heavy": false
+      }
+    },
+    {
       "lead_key": "kaiser_portland_nursing:1b869a85da8229c96c6c58b2da2b401d0af5bd17",
       "lead_type": "job",
       "track": "core_rn_oregon",
@@ -8332,105 +8435,6 @@
       }
     },
     {
-      "lead_key": "kaiser_northwest_nursing:dc16d62dab083825d3e293d7cab1dca7aa47a174",
-      "lead_type": "job",
-      "track": "core_rn_oregon",
-      "subtrack": "health_system",
-      "horizon": "post_reinstatement",
-      "geo_scope": "oregon",
-      "rn_leverage_type": "implementation",
-      "relocation_risk": "none",
-      "bucket": "priority",
-      "score": 102,
-      "title": "TEMP - RN, Emergency Department (36hrs, Nights)",
-      "company": "Kaiser Permanente",
-      "source_key": "kaiser_northwest_nursing",
-      "source_name": "Kaiser Northwest Nursing Careers",
-      "location": "Hillsboro, Oregon, Onsite, Part-time, Night",
-      "detail_url": "https://www.kaiserpermanentejobs.org/job/hillsboro/temp-rn-emergency-department-36hrs-nights/641/95434974720",
-      "reasons": [
-        "job collected from a tracked source",
-        "title matches 'rn '",
-        "description includes 'implementation'",
-        "critical-care context includes 'acuity'",
-        "priority location match: oregon",
-        "employer boost for Kaiser Permanente"
-      ],
-      "tags": [
-        "RN",
-        "ICU",
-        "Oregon",
-        "Kaiser Permanente",
-        "Bridge",
-        "Informatics"
-      ],
-      "profile_scores": {
-        "oregon_now": 297,
-        "bridge_to_informatics": 253,
-        "frontier_transition": 159
-      },
-      "profile_reasons": {
-        "oregon_now": [
-          "profile preferences favor Kaiser Permanente",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "profile preferences favor ICU or critical-care adjacency"
-        ],
-        "bridge_to_informatics": [
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "profile preferences favor ICU or critical-care adjacency",
-          "manual employer interest level is high"
-        ],
-        "frontier_transition": [
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "profile preferences favor ICU or critical-care adjacency",
-          "manual employer interest level is high",
-          "RN-leveraged vendor or workflow work is the target transition lane"
-        ]
-      },
-      "profile_preference_deltas": {
-        "oregon_now": 73,
-        "bridge_to_informatics": 59,
-        "frontier_transition": 43
-      },
-      "starred": false,
-      "saved": false,
-      "dismissed": false,
-      "pinned_reason": "",
-      "manual_notes": [],
-      "score_breakdown": {
-        "track": "core_rn_oregon",
-        "bucket_universe": "core_rn_oregon",
-        "title_score": 58,
-        "description_score": 14,
-        "rn_score": 0,
-        "location_score": 14,
-        "employer_score": 10,
-        "icu_score": 6,
-        "bridge_score": 0,
-        "signal_score": 0,
-        "frontier_fit_score": 0,
-        "leverage_score": 0,
-        "scope_score": 0,
-        "penalty_score": 0,
-        "final_score": 102,
-        "role_class": "bridge",
-        "bucket_decision_notes": [
-          "Bridge role clears the raised priority bar through RN leverage and tech relevance."
-        ],
-        "promoted_by_bridge_logic": false,
-        "demoted_generic_rn_volume": false,
-        "generic_rn_volume": false,
-        "engineering_heavy": false
-      }
-    },
-    {
       "lead_key": "providence_oregon:cb1f380e4ef28d2c00d69b41bc4e16845ca642ea",
       "lead_type": "job",
       "track": "core_rn_oregon",
@@ -8795,103 +8799,6 @@
         "location_score": 24,
         "employer_score": 10,
         "icu_score": 8,
-        "bridge_score": 0,
-        "signal_score": 0,
-        "frontier_fit_score": 0,
-        "leverage_score": 0,
-        "scope_score": 0,
-        "penalty_score": 0,
-        "final_score": 110,
-        "role_class": "bridge",
-        "bucket_decision_notes": [
-          "Bridge role clears the raised priority bar through RN leverage and tech relevance."
-        ],
-        "promoted_by_bridge_logic": false,
-        "demoted_generic_rn_volume": false,
-        "generic_rn_volume": false,
-        "engineering_heavy": false
-      }
-    },
-    {
-      "lead_key": "ohsu_nursing:7ceada12861a439bda6e0cd0f9d6c0238b6361bc",
-      "lead_type": "job",
-      "track": "core_rn_oregon",
-      "subtrack": "health_system",
-      "horizon": "post_reinstatement",
-      "geo_scope": "oregon",
-      "rn_leverage_type": "implementation",
-      "relocation_risk": "none",
-      "bucket": "priority",
-      "score": 110,
-      "title": "Title RN, Pediatric Operating Room",
-      "company": "OHSU",
-      "source_key": "ohsu_nursing",
-      "source_name": "OHSU Nursing Jobs",
-      "location": "US-OR-Portland",
-      "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/37679/rn%2c-pediatric-operating-room/job?in_iframe=1",
-      "reasons": [
-        "job collected from a tracked source",
-        "title matches 'rn '",
-        "description includes 'quality improvement'",
-        "description includes 'research'",
-        "employer boost for OHSU",
-        "employer has active AI / informatics footprint"
-      ],
-      "tags": [
-        "RN",
-        "OHSU",
-        "Bridge",
-        "Informatics"
-      ],
-      "profile_scores": {
-        "oregon_now": 291,
-        "bridge_to_informatics": 259,
-        "frontier_transition": 165
-      },
-      "profile_reasons": {
-        "oregon_now": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ],
-        "bridge_to_informatics": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ],
-        "frontier_transition": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high",
-          "RN-leveraged vendor or workflow work is the target transition lane"
-        ]
-      },
-      "profile_preference_deltas": {
-        "oregon_now": 59,
-        "bridge_to_informatics": 57,
-        "frontier_transition": 41
-      },
-      "starred": false,
-      "saved": false,
-      "dismissed": false,
-      "pinned_reason": "",
-      "manual_notes": [],
-      "score_breakdown": {
-        "track": "core_rn_oregon",
-        "bucket_universe": "core_rn_oregon",
-        "title_score": 58,
-        "description_score": 24,
-        "rn_score": 0,
-        "location_score": 0,
-        "employer_score": 28,
-        "icu_score": 0,
         "bridge_score": 0,
         "signal_score": 0,
         "frontier_fit_score": 0,
@@ -10131,6 +10038,99 @@
         "generic_rn_volume": true,
         "engineering_heavy": false
       }
+    },
+    {
+      "lead_key": "providence_oregon:cceca93ef452b5c29ff269350328dfa1122d146c",
+      "lead_type": "job",
+      "track": "core_rn_oregon",
+      "subtrack": "health_system",
+      "horizon": "post_reinstatement",
+      "geo_scope": "oregon",
+      "rn_leverage_type": "direct_clinical",
+      "relocation_risk": "none",
+      "bucket": "bridge",
+      "score": 96,
+      "title": "RN - Oncology",
+      "company": "Providence",
+      "source_key": "providence_oregon",
+      "source_name": "Providence Oregon Careers",
+      "location": "Medford, OR",
+      "detail_url": "https://providence-oregon.jobs/medford-or/rn-oncology/1D2CF269C16A4C579BA6D650F072C69F/job/",
+      "reasons": [
+        "job collected from a tracked source",
+        "title matches 'rn '",
+        "requirements mention 'registered nurse license'",
+        "employer boost for Providence",
+        "employer has active AI / informatics footprint",
+        "generic bedside RN volume is intentionally demoted below specialized or bridge roles"
+      ],
+      "tags": [
+        "RN",
+        "Providence"
+      ],
+      "profile_scores": {
+        "oregon_now": 267,
+        "bridge_to_informatics": 206,
+        "frontier_transition": 106
+      },
+      "profile_reasons": {
+        "oregon_now": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high"
+        ],
+        "bridge_to_informatics": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high",
+          "base bucket already indicates a bridge-capable role"
+        ],
+        "frontier_transition": [
+          "profile preferences favor Providence",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high"
+        ]
+      },
+      "profile_preference_deltas": {
+        "oregon_now": 59,
+        "bridge_to_informatics": 48,
+        "frontier_transition": 32
+      },
+      "starred": false,
+      "saved": false,
+      "dismissed": false,
+      "pinned_reason": "",
+      "manual_notes": [],
+      "score_breakdown": {
+        "track": "core_rn_oregon",
+        "bucket_universe": "core_rn_oregon",
+        "title_score": 58,
+        "description_score": 0,
+        "rn_score": 28,
+        "location_score": 0,
+        "employer_score": 28,
+        "icu_score": 0,
+        "bridge_score": 0,
+        "signal_score": 0,
+        "frontier_fit_score": 0,
+        "leverage_score": 0,
+        "scope_score": 0,
+        "penalty_score": -18,
+        "final_score": 96,
+        "role_class": "direct_rn_generic",
+        "bucket_decision_notes": [
+          "Generic RN volume is capped below priority so bridge roles stay visible."
+        ],
+        "promoted_by_bridge_logic": false,
+        "demoted_generic_rn_volume": true,
+        "generic_rn_volume": true,
+        "engineering_heavy": false
+      }
     }
   ],
   "strongest_discards": [
@@ -10223,6 +10223,99 @@
         "promoted_by_bridge_logic": false,
         "demoted_generic_rn_volume": false,
         "generic_rn_volume": false,
+        "engineering_heavy": false
+      }
+    },
+    {
+      "lead_key": "providence_oregon:217c91dbe8fbd09c1c239957faaed74e7b9d0c78",
+      "lead_type": "job",
+      "track": "core_rn_oregon",
+      "subtrack": "health_system",
+      "horizon": "post_reinstatement",
+      "geo_scope": "oregon",
+      "rn_leverage_type": "direct_clinical",
+      "relocation_risk": "none",
+      "bucket": "discard",
+      "score": -95,
+      "title": "CNA - Nursing Float Pool 0.9 FTE Night",
+      "company": "Providence",
+      "source_key": "providence_oregon",
+      "source_name": "Providence Oregon Careers",
+      "location": "Medford, OR",
+      "detail_url": "https://providence-oregon.jobs/medford-or/cna-nursing-float-pool-09-fte-night/4C80BCD7BB7C4758954722809B15245B/job/",
+      "reasons": [
+        "job collected from a tracked source",
+        "title penalty for 'cna'",
+        "description penalty for 'certified nursing assistant'",
+        "employer boost for Providence",
+        "employer has active AI / informatics footprint",
+        "generic bedside RN volume is intentionally demoted below specialized or bridge roles"
+      ],
+      "tags": [
+        "Providence",
+        "RN"
+      ],
+      "profile_scores": {
+        "oregon_now": 153,
+        "bridge_to_informatics": 70,
+        "frontier_transition": 4
+      },
+      "profile_reasons": {
+        "oregon_now": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high"
+        ],
+        "bridge_to_informatics": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high",
+          "workflow or informatics language strengthens the bridge case"
+        ],
+        "frontier_transition": [
+          "profile preferences favor Providence",
+          "profile preferences align with this time horizon",
+          "manual employer interest level is high"
+        ]
+      },
+      "profile_preference_deltas": {
+        "oregon_now": 59,
+        "bridge_to_informatics": 48,
+        "frontier_transition": 32
+      },
+      "starred": false,
+      "saved": false,
+      "dismissed": false,
+      "pinned_reason": "",
+      "manual_notes": [],
+      "score_breakdown": {
+        "track": "core_rn_oregon",
+        "bucket_universe": "core_rn_oregon",
+        "title_score": 0,
+        "description_score": 0,
+        "rn_score": 0,
+        "location_score": 0,
+        "employer_score": 28,
+        "icu_score": 0,
+        "bridge_score": 0,
+        "signal_score": 0,
+        "frontier_fit_score": 0,
+        "leverage_score": 0,
+        "scope_score": 0,
+        "penalty_score": -123,
+        "final_score": -95,
+        "role_class": "direct_rn_generic",
+        "bucket_decision_notes": [
+          "Hard non-RN mismatch overrides employer or location boosts."
+        ],
+        "promoted_by_bridge_logic": false,
+        "demoted_generic_rn_volume": true,
+        "generic_rn_volume": true,
         "engineering_heavy": false
       }
     },
@@ -11624,6 +11717,98 @@
       }
     },
     {
+      "lead_key": "providence_oregon:714a860bc396de3326589c1753ea95c8c65a7caf",
+      "lead_type": "job",
+      "track": "core_rn_oregon",
+      "subtrack": "health_system",
+      "horizon": "post_reinstatement",
+      "geo_scope": "oregon",
+      "rn_leverage_type": "direct_clinical",
+      "relocation_risk": "none",
+      "bucket": "discard",
+      "score": 2,
+      "title": "Certified Nursing Assistant - NICU 0.6 FTE Evening",
+      "company": "Providence",
+      "source_key": "providence_oregon",
+      "source_name": "Providence Oregon Careers",
+      "location": "Portland, OR",
+      "detail_url": "https://providence-oregon.jobs/portland-or/certified-nursing-assistant-nicu-06-fte-evening/2390E85659F14C46AD14105F18C440C3/job/",
+      "reasons": [
+        "job collected from a tracked source",
+        "description penalty for 'certified nursing assistant'",
+        "priority location match: portland, or",
+        "employer boost for Providence",
+        "employer has active AI / informatics footprint"
+      ],
+      "tags": [
+        "Oregon",
+        "Providence",
+        "RN"
+      ],
+      "profile_scores": {
+        "oregon_now": 169,
+        "bridge_to_informatics": 84,
+        "frontier_transition": 18
+      },
+      "profile_reasons": {
+        "oregon_now": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency"
+        ],
+        "bridge_to_informatics": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency",
+          "manual employer interest level is high"
+        ],
+        "frontier_transition": [
+          "profile preferences favor Providence",
+          "profile preferences align with this time horizon",
+          "profile preferences favor ICU or critical-care adjacency",
+          "manual employer interest level is high"
+        ]
+      },
+      "profile_preference_deltas": {
+        "oregon_now": 73,
+        "bridge_to_informatics": 60,
+        "frontier_transition": 44
+      },
+      "starred": false,
+      "saved": false,
+      "dismissed": false,
+      "pinned_reason": "",
+      "manual_notes": [],
+      "score_breakdown": {
+        "track": "core_rn_oregon",
+        "bucket_universe": "core_rn_oregon",
+        "title_score": 0,
+        "description_score": 0,
+        "rn_score": 0,
+        "location_score": 24,
+        "employer_score": 28,
+        "icu_score": 0,
+        "bridge_score": 0,
+        "signal_score": 0,
+        "frontier_fit_score": 0,
+        "leverage_score": 0,
+        "scope_score": 0,
+        "penalty_score": -50,
+        "final_score": 2,
+        "role_class": "direct_rn_specialized",
+        "bucket_decision_notes": [],
+        "promoted_by_bridge_logic": false,
+        "demoted_generic_rn_volume": false,
+        "generic_rn_volume": false,
+        "engineering_heavy": false
+      }
+    },
+    {
       "lead_key": "providence_oregon:606695ae9e0677cc74b9045aa2ffeeb4242b6249",
       "lead_type": "job",
       "track": "core_rn_oregon",
@@ -12248,186 +12433,6 @@
         "scope_score": 0,
         "penalty_score": -26,
         "final_score": 18,
-        "role_class": "unrelated",
-        "bucket_decision_notes": [
-          "Role lacks RN leverage and bridge-role relevance."
-        ],
-        "promoted_by_bridge_logic": false,
-        "demoted_generic_rn_volume": false,
-        "generic_rn_volume": false,
-        "engineering_heavy": false
-      }
-    },
-    {
-      "lead_key": "ohsu_nursing:2f7a6f70ccdc7b4ed0a6b3a9b6c04abcaff50221",
-      "lead_type": "job",
-      "track": "core_rn_oregon",
-      "subtrack": "health_system",
-      "horizon": "post_reinstatement",
-      "geo_scope": "oregon",
-      "rn_leverage_type": "direct_clinical",
-      "relocation_risk": "none",
-      "bucket": "discard",
-      "score": 20,
-      "title": "Title Assistant Nurse Manager, Heart & Vascular",
-      "company": "OHSU",
-      "source_key": "ohsu_nursing",
-      "source_name": "OHSU Nursing Jobs",
-      "location": "US-OR-Portland",
-      "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/39150/assistant-nurse-manager%2c-heart-%26-vascular/job?in_iframe=1",
-      "reasons": [
-        "job collected from a tracked source",
-        "employer boost for OHSU"
-      ],
-      "tags": [
-        "OHSU",
-        "Bridge",
-        "Informatics"
-      ],
-      "profile_scores": {
-        "oregon_now": 173,
-        "bridge_to_informatics": 90,
-        "frontier_transition": 24
-      },
-      "profile_reasons": {
-        "oregon_now": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ],
-        "bridge_to_informatics": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high",
-          "workflow or informatics language strengthens the bridge case"
-        ],
-        "frontier_transition": [
-          "profile preferences favor OHSU",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ]
-      },
-      "profile_preference_deltas": {
-        "oregon_now": 59,
-        "bridge_to_informatics": 48,
-        "frontier_transition": 32
-      },
-      "starred": false,
-      "saved": false,
-      "dismissed": false,
-      "pinned_reason": "",
-      "manual_notes": [],
-      "score_breakdown": {
-        "track": "core_rn_oregon",
-        "bucket_universe": "core_rn_oregon",
-        "title_score": 0,
-        "description_score": 0,
-        "rn_score": 0,
-        "location_score": 0,
-        "employer_score": 20,
-        "icu_score": 0,
-        "bridge_score": 0,
-        "signal_score": 0,
-        "frontier_fit_score": 0,
-        "leverage_score": 0,
-        "scope_score": 0,
-        "penalty_score": 0,
-        "final_score": 20,
-        "role_class": "unrelated",
-        "bucket_decision_notes": [
-          "Role lacks RN leverage and bridge-role relevance."
-        ],
-        "promoted_by_bridge_logic": false,
-        "demoted_generic_rn_volume": false,
-        "generic_rn_volume": false,
-        "engineering_heavy": false
-      }
-    },
-    {
-      "lead_key": "ohsu_nursing:5a2d75c461319726b230fb9d0fdb80033a949ee0",
-      "lead_type": "job",
-      "track": "core_rn_oregon",
-      "subtrack": "health_system",
-      "horizon": "post_reinstatement",
-      "geo_scope": "oregon",
-      "rn_leverage_type": "direct_clinical",
-      "relocation_risk": "none",
-      "bucket": "discard",
-      "score": 20,
-      "title": "Title Assistant Nurse Manager, Neurosciences",
-      "company": "OHSU",
-      "source_key": "ohsu_nursing",
-      "source_name": "OHSU Nursing Jobs",
-      "location": "US-OR-Portland",
-      "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/39610/assistant-nurse-manager%2c-neurosciences/job?in_iframe=1",
-      "reasons": [
-        "job collected from a tracked source",
-        "employer boost for OHSU"
-      ],
-      "tags": [
-        "OHSU",
-        "Bridge",
-        "Informatics"
-      ],
-      "profile_scores": {
-        "oregon_now": 173,
-        "bridge_to_informatics": 90,
-        "frontier_transition": 24
-      },
-      "profile_reasons": {
-        "oregon_now": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ],
-        "bridge_to_informatics": [
-          "profile preferences favor OHSU",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high",
-          "workflow or informatics language strengthens the bridge case"
-        ],
-        "frontier_transition": [
-          "profile preferences favor OHSU",
-          "profile preferences align with this time horizon",
-          "manual employer interest level is high"
-        ]
-      },
-      "profile_preference_deltas": {
-        "oregon_now": 59,
-        "bridge_to_informatics": 48,
-        "frontier_transition": 32
-      },
-      "starred": false,
-      "saved": false,
-      "dismissed": false,
-      "pinned_reason": "",
-      "manual_notes": [],
-      "score_breakdown": {
-        "track": "core_rn_oregon",
-        "bucket_universe": "core_rn_oregon",
-        "title_score": 0,
-        "description_score": 0,
-        "rn_score": 0,
-        "location_score": 0,
-        "employer_score": 20,
-        "icu_score": 0,
-        "bridge_score": 0,
-        "signal_score": 0,
-        "frontier_fit_score": 0,
-        "leverage_score": 0,
-        "scope_score": 0,
-        "penalty_score": 0,
-        "final_score": 20,
         "role_class": "unrelated",
         "bucket_decision_notes": [
           "Role lacks RN leverage and bridge-role relevance."
@@ -13915,7 +13920,7 @@
         }
       },
       {
-        "lead_key": "kaiser_northwest_nursing:b97359f5b3918e686714b25dd05206ff4613e36e",
+        "lead_key": "kaiser_northwest_nursing:c35c986b8959effa576a34f3e08eb0b0401964d7",
         "lead_type": "job",
         "track": "core_rn_oregon",
         "subtrack": "health_system",
@@ -13925,12 +13930,12 @@
         "relocation_risk": "none",
         "bucket": "priority",
         "score": 102,
-        "title": "RN, Inpatient",
+        "title": "RN - Medical Surgical (General) - KSMC 1S / 36 Hr / Days",
         "company": "Kaiser Permanente",
         "source_key": "kaiser_northwest_nursing",
         "source_name": "Kaiser Northwest Nursing Careers",
-        "location": "Clackamas, Oregon, Onsite, Full-time, Day",
-        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-inpatient/641/95454254224",
+        "location": "Clackamas, Oregon, Onsite, Part-time, Day",
+        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-medical-surgical-general-ksmc-1s-36-hr-days/641/96041326816",
         "reasons": [
           "job collected from a tracked source",
           "title matches 'rn '",
@@ -14014,7 +14019,7 @@
         }
       },
       {
-        "lead_key": "kaiser_northwest_nursing:dc16d62dab083825d3e293d7cab1dca7aa47a174",
+        "lead_key": "kaiser_northwest_nursing:b97359f5b3918e686714b25dd05206ff4613e36e",
         "lead_type": "job",
         "track": "core_rn_oregon",
         "subtrack": "health_system",
@@ -14024,12 +14029,12 @@
         "relocation_risk": "none",
         "bucket": "priority",
         "score": 102,
-        "title": "TEMP - RN, Emergency Department (36hrs, Nights)",
+        "title": "RN, Inpatient",
         "company": "Kaiser Permanente",
         "source_key": "kaiser_northwest_nursing",
         "source_name": "Kaiser Northwest Nursing Careers",
-        "location": "Hillsboro, Oregon, Onsite, Part-time, Night",
-        "detail_url": "https://www.kaiserpermanentejobs.org/job/hillsboro/temp-rn-emergency-department-36hrs-nights/641/95434974720",
+        "location": "Clackamas, Oregon, Onsite, Full-time, Day",
+        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-inpatient/641/95454254224",
         "reasons": [
           "job collected from a tracked source",
           "title matches 'rn '",
@@ -17397,6 +17402,107 @@
         }
       },
       {
+        "lead_key": "viz_ai_frontier_roles:0977e9626776149a22b63e171c71003680843d36",
+        "lead_type": "job",
+        "track": "frontier_ecosystem",
+        "subtrack": "vendor",
+        "horizon": "now",
+        "geo_scope": "remote_us",
+        "rn_leverage_type": "clinical_success",
+        "relocation_risk": "none",
+        "bucket": "target",
+        "score": 120,
+        "title": "Senior Manager, Product Management (Neuro)",
+        "company": "Viz.ai",
+        "source_key": "viz_ai_frontier_roles",
+        "source_name": "Viz.ai Frontier Roles",
+        "location": "United States - Remote",
+        "detail_url": "https://jobs.ashbyhq.com/Viz.ai?ashby_jid=118607fc-7d8c-4260-9441-60d7f5a6a3dc",
+        "reasons": [
+          "curated frontier ecosystem role",
+          "frontier context includes 'workflow'",
+          "frontier context includes 'clinical'",
+          "frontier context includes 'ai'",
+          "bridge signal includes 'workflow'",
+          "bridge signal includes 'ai'",
+          "frontier employer boost for Viz.ai",
+          "role maps to RN leverage via clinical success"
+        ],
+        "tags": [
+          "Frontier",
+          "Remote",
+          "AI Care Coordination",
+          "Viz.ai",
+          "Clinical Success"
+        ],
+        "profile_scores": {
+          "oregon_now": 160,
+          "bridge_to_informatics": 257,
+          "frontier_transition": 283
+        },
+        "profile_reasons": {
+          "oregon_now": [
+            "profile preferences downweight this horizon",
+            "profile preferences favor remote-friendly frontier roles",
+            "manual employer interest marks this as frontier-relevant",
+            "frontier rail is intentionally secondary for Oregon-now decisions",
+            "bridge-capable work can still be actionable in the near term",
+            "low relocation risk improves near-term practicality"
+          ],
+          "bridge_to_informatics": [
+            "profile preferences favor Viz.ai",
+            "profile preferences favor this geo scope",
+            "profile preferences favor this track",
+            "profile preferences favor this RN leverage type",
+            "profile preferences downweight this horizon",
+            "profile preferences favor remote-friendly frontier roles"
+          ],
+          "frontier_transition": [
+            "profile preferences favor Viz.ai",
+            "profile preferences favor this geo scope",
+            "profile preferences favor this track",
+            "profile preferences favor this RN leverage type",
+            "profile preferences downweight this horizon",
+            "profile preferences favor remote-friendly frontier roles"
+          ]
+        },
+        "profile_preference_deltas": {
+          "oregon_now": 16,
+          "bridge_to_informatics": 51,
+          "frontier_transition": 53
+        },
+        "starred": false,
+        "saved": false,
+        "dismissed": false,
+        "pinned_reason": "",
+        "manual_notes": [],
+        "score_breakdown": {
+          "track": "frontier_ecosystem",
+          "bucket_universe": "frontier_ecosystem",
+          "title_score": 0,
+          "description_score": 32,
+          "rn_score": 0,
+          "location_score": 0,
+          "employer_score": 14,
+          "icu_score": 0,
+          "bridge_score": 24,
+          "signal_score": 0,
+          "frontier_fit_score": 0,
+          "leverage_score": 32,
+          "scope_score": 18,
+          "penalty_score": 0,
+          "final_score": 120,
+          "role_class": "clinical_success",
+          "bucket_decision_notes": [
+            "RN-leveraged frontier role is strong enough to stand as a real target."
+          ],
+          "promoted_by_bridge_logic": false,
+          "demoted_generic_rn_volume": false,
+          "generic_rn_volume": false,
+          "engineering_heavy": false
+        }
+      },
+      {
         "lead_key": "viz_ai_frontier_roles:e5217ef09dc2dc650725730969f52e8cd2a15caa",
         "lead_type": "job",
         "track": "frontier_ecosystem",
@@ -18302,106 +18408,6 @@
           "generic_rn_volume": false,
           "engineering_heavy": false
         }
-      },
-      {
-        "lead_key": "pearl_health_frontier_roles:d4a18e8bc89a4abef942508f8ecf72b36c7de687",
-        "lead_type": "job",
-        "track": "frontier_ecosystem",
-        "subtrack": "vendor",
-        "horizon": "now",
-        "geo_scope": "remote_us",
-        "rn_leverage_type": "clinical_success",
-        "relocation_risk": "none",
-        "bucket": "target",
-        "score": 94,
-        "title": "Senior Manager, Growth Operations & Hubspot Systems",
-        "company": "Pearl Health",
-        "source_key": "pearl_health_frontier_roles",
-        "source_name": "Pearl Health Frontier Roles",
-        "location": "Seattle, New York City, Boston, or Remote",
-        "detail_url": "https://jobs.ashbyhq.com/pearlhealth?ashby_jid=d553cdf0-0930-43f2-8d6d-f23517a5826c",
-        "reasons": [
-          "curated frontier ecosystem role",
-          "frontier context includes 'clinical'",
-          "frontier context includes 'customer success'",
-          "frontier context includes 'clinical performance'",
-          "frontier employer boost for Pearl Health",
-          "role maps to RN leverage via clinical success",
-          "remote US scope reduces relocation risk"
-        ],
-        "tags": [
-          "Frontier",
-          "Remote",
-          "Value-Based Care",
-          "Pearl Health",
-          "Clinical Success"
-        ],
-        "profile_scores": {
-          "oregon_now": 134,
-          "bridge_to_informatics": 201,
-          "frontier_transition": 257
-        },
-        "profile_reasons": {
-          "oregon_now": [
-            "profile preferences downweight this horizon",
-            "profile preferences favor remote-friendly frontier roles",
-            "manual employer interest marks this as frontier-relevant",
-            "frontier rail is intentionally secondary for Oregon-now decisions",
-            "bridge-capable work can still be actionable in the near term",
-            "low relocation risk improves near-term practicality"
-          ],
-          "bridge_to_informatics": [
-            "profile preferences favor Pearl Health",
-            "profile preferences favor this geo scope",
-            "profile preferences favor this track",
-            "profile preferences favor this RN leverage type",
-            "profile preferences downweight this horizon",
-            "profile preferences favor remote-friendly frontier roles"
-          ],
-          "frontier_transition": [
-            "profile preferences favor Pearl Health",
-            "profile preferences favor this geo scope",
-            "profile preferences favor this track",
-            "profile preferences favor this RN leverage type",
-            "profile preferences downweight this horizon",
-            "profile preferences favor remote-friendly frontier roles"
-          ]
-        },
-        "profile_preference_deltas": {
-          "oregon_now": 16,
-          "bridge_to_informatics": 51,
-          "frontier_transition": 53
-        },
-        "starred": false,
-        "saved": false,
-        "dismissed": false,
-        "pinned_reason": "",
-        "manual_notes": [],
-        "score_breakdown": {
-          "track": "frontier_ecosystem",
-          "bucket_universe": "frontier_ecosystem",
-          "title_score": 0,
-          "description_score": 32,
-          "rn_score": 0,
-          "location_score": 0,
-          "employer_score": 12,
-          "icu_score": 0,
-          "bridge_score": 0,
-          "signal_score": 0,
-          "frontier_fit_score": 0,
-          "leverage_score": 32,
-          "scope_score": 18,
-          "penalty_score": 0,
-          "final_score": 94,
-          "role_class": "clinical_success",
-          "bucket_decision_notes": [
-            "RN-leveraged frontier role is strong enough to stand as a real target."
-          ],
-          "promoted_by_bridge_logic": false,
-          "demoted_generic_rn_volume": false,
-          "generic_rn_volume": false,
-          "engineering_heavy": false
-        }
       }
     ]
   },
@@ -18475,12 +18481,12 @@
         "frontier_ecosystem"
       ],
       "bucket_counts": {
-        "priority": 2,
+        "priority": 1,
         "bridge": 24,
         "strategic_watch": 2
       },
       "track_counts": {
-        "core_rn_oregon": 26,
+        "core_rn_oregon": 25,
         "frontier_ecosystem": 2
       },
       "locations_seen": [
@@ -18508,8 +18514,8 @@
         "OHSU has visible innovation or ecosystem signal presence."
       ],
       "profile_highlights": {
-        "oregon_now": 291,
-        "bridge_to_informatics": 259,
+        "oregon_now": 285,
+        "bridge_to_informatics": 255,
         "frontier_transition": 165
       },
       "manual_starred": true,
@@ -18521,7 +18527,7 @@
         "good bridge employer",
         "Pinned: worth tracking after reinstatement"
       ],
-      "employer_score": 352
+      "employer_score": 336
     },
     {
       "employer_key": "kaiser permanente",
@@ -18530,21 +18536,23 @@
         "core_rn_oregon"
       ],
       "bucket_counts": {
-        "priority": 7
+        "priority": 7,
+        "watch": 1
       },
       "track_counts": {
-        "core_rn_oregon": 7
+        "core_rn_oregon": 8
       },
       "locations_seen": [
         "Portland, OR, Onsite, Full-time, Day",
-        "Portland, OR, Onsite, Call-in/On-Call, Variable",
         "Clackamas, Oregon, Onsite, Full-time, Day",
-        "Portland, OR, Onsite, Call-in/On-Call, Day",
-        "Hillsboro, Oregon, Onsite, Part-time, Night"
+        "Portland, OR, Onsite, Call-in/On-Call, Variable",
+        "Clackamas, Oregon, Onsite, Part-time, Day",
+        "Portland, OR, Onsite, Call-in/On-Call, Day"
       ],
       "innovation_signal_presence": false,
       "rn_leverage_types": [
-        "implementation"
+        "implementation",
+        "direct_clinical"
       ],
       "employer_tags": [
         "manual_interest_high",
@@ -18582,16 +18590,16 @@
       "bucket_counts": {
         "bridge": 5,
         "watch": 1,
-        "long_shot": 26
+        "long_shot": 25
       },
       "track_counts": {
-        "core_rn_oregon": 32
+        "core_rn_oregon": 31
       },
       "locations_seen": [
         "Salmon Creek Medical Ctr campus",
         "Randall Children's Hospital at Legacy Emanuel",
-        "Silverton Medical Ctr campus",
         "Emanuel Medical Ctr campus",
+        "Silverton Medical Ctr campus",
         "Mount Hood Medical Center campus",
         "Meridian Park Medical Ctr campus"
       ],
@@ -18979,12 +18987,12 @@
         "frontier_ecosystem"
       ],
       "bucket_counts": {
-        "priority": 2,
+        "priority": 1,
         "bridge": 24,
         "strategic_watch": 2
       },
       "track_counts": {
-        "core_rn_oregon": 26,
+        "core_rn_oregon": 25,
         "frontier_ecosystem": 2
       },
       "locations_seen": [
@@ -19012,8 +19020,8 @@
         "OHSU has visible innovation or ecosystem signal presence."
       ],
       "profile_highlights": {
-        "oregon_now": 291,
-        "bridge_to_informatics": 259,
+        "oregon_now": 285,
+        "bridge_to_informatics": 255,
         "frontier_transition": 165
       },
       "manual_starred": true,
@@ -19025,7 +19033,7 @@
         "good bridge employer",
         "Pinned: worth tracking after reinstatement"
       ],
-      "employer_score": 352
+      "employer_score": 336
     },
     {
       "employer_key": "viz.ai",
@@ -19034,12 +19042,12 @@
         "frontier_ecosystem"
       ],
       "bucket_counts": {
-        "target": 12,
+        "target": 13,
         "strategic_watch": 1,
         "ecosystem_signal": 1
       },
       "track_counts": {
-        "frontier_ecosystem": 14
+        "frontier_ecosystem": 15
       },
       "locations_seen": [
         "United States - Remote",
@@ -19078,7 +19086,7 @@
         "worth tracking after reinstatement",
         "Pinned: frontier target but relocation/remote dependent"
       ],
-      "employer_score": 220
+      "employer_score": 234
     },
     {
       "employer_key": "pearl health",
@@ -19205,12 +19213,12 @@
         "frontier_ecosystem"
       ],
       "bucket_counts": {
-        "priority": 2,
+        "priority": 1,
         "bridge": 24,
         "strategic_watch": 2
       },
       "track_counts": {
-        "core_rn_oregon": 26,
+        "core_rn_oregon": 25,
         "frontier_ecosystem": 2
       },
       "locations_seen": [
@@ -19238,8 +19246,8 @@
         "OHSU has visible innovation or ecosystem signal presence."
       ],
       "profile_highlights": {
-        "oregon_now": 291,
-        "bridge_to_informatics": 259,
+        "oregon_now": 285,
+        "bridge_to_informatics": 255,
         "frontier_transition": 165
       },
       "manual_starred": true,
@@ -19251,7 +19259,7 @@
         "good bridge employer",
         "Pinned: worth tracking after reinstatement"
       ],
-      "employer_score": 352
+      "employer_score": 336
     }
   ],
   "bucket_distribution_by_source": {
@@ -19260,14 +19268,14 @@
       "track": "core_rn_oregon",
       "source_class": "official",
       "bucket_counts": {
-        "priority": 2,
+        "priority": 1,
         "bridge": 24,
-        "discard": 13
+        "discard": 14
       },
-      "average_score": 52.08,
-      "active_kept_count": 26,
-      "discarded_count": 13,
-      "deduped_away_count": 1
+      "average_score": 49.1,
+      "active_kept_count": 25,
+      "discarded_count": 14,
+      "deduped_away_count": 2
     },
     "ohsu_rn": {
       "source_name": "OHSU Registered Nurse Jobs",
@@ -19277,7 +19285,7 @@
       "average_score": 0,
       "active_kept_count": 0,
       "discarded_count": 0,
-      "deduped_away_count": 39
+      "deduped_away_count": 40
     },
     "ohsu_health_jobs": {
       "source_name": "OHSU Health Care Jobs",
@@ -19287,7 +19295,7 @@
       "average_score": 0,
       "active_kept_count": 0,
       "discarded_count": 0,
-      "deduped_away_count": 33
+      "deduped_away_count": 32
     },
     "providence_nursing": {
       "source_name": "Providence Nursing Careers",
@@ -19297,7 +19305,7 @@
       "average_score": 0,
       "active_kept_count": 0,
       "discarded_count": 0,
-      "deduped_away_count": 61
+      "deduped_away_count": 65
     },
     "providence_oregon": {
       "source_name": "Providence Oregon Careers",
@@ -19306,12 +19314,12 @@
       "bucket_counts": {
         "priority": 15,
         "bridge": 23,
-        "discard": 14
+        "discard": 16
       },
-      "average_score": 74.9,
+      "average_score": 70.41,
       "active_kept_count": 38,
-      "discarded_count": 14,
-      "deduped_away_count": 9
+      "discarded_count": 16,
+      "deduped_away_count": 11
     },
     "providence_oregon_nursing": {
       "source_name": "Providence Oregon Nursing Jobs",
@@ -19321,7 +19329,7 @@
       "average_score": 0,
       "active_kept_count": 0,
       "discarded_count": 0,
-      "deduped_away_count": 61
+      "deduped_away_count": 65
     },
     "peacehealth_oregon_nursing": {
       "source_name": "PeaceHealth Oregon Nursing Jobs",
@@ -19350,11 +19358,11 @@
       "bucket_counts": {
         "bridge": 4,
         "watch": 1,
-        "long_shot": 26,
+        "long_shot": 25,
         "discard": 1
       },
-      "average_score": 51.09,
-      "active_kept_count": 31,
+      "average_score": 51.19,
+      "active_kept_count": 30,
       "discarded_count": 1,
       "deduped_away_count": 13
     },
@@ -19363,12 +19371,13 @@
       "track": "core_rn_oregon",
       "source_class": "official",
       "bucket_counts": {
-        "priority": 2
+        "priority": 2,
+        "watch": 1
       },
-      "average_score": 102.0,
-      "active_kept_count": 2,
+      "average_score": 89.33,
+      "active_kept_count": 3,
       "discarded_count": 0,
-      "deduped_away_count": 1
+      "deduped_away_count": 0
     },
     "kaiser_portland_nursing": {
       "source_name": "Kaiser Portland Nursing Jobs",
@@ -19438,11 +19447,11 @@
       "track": "frontier_ecosystem",
       "source_class": "official",
       "bucket_counts": {
-        "target": 12,
+        "target": 13,
         "strategic_watch": 1
       },
-      "average_score": 121.38,
-      "active_kept_count": 13,
+      "average_score": 121.29,
+      "active_kept_count": 14,
       "discarded_count": 0,
       "deduped_away_count": 0
     },
@@ -19564,28 +19573,28 @@
     }
   },
   "movement": {
-    "generated_at": "2026-06-05T09:08:27.110280-07:00",
+    "generated_at": "2026-06-06T07:51:12.505627-07:00",
     "summary": {
       "new_high_signal_count": 5,
       "promoted_count": 0,
-      "vanished_count": 7,
+      "vanished_count": 4,
       "growing_employer_count": 2,
       "new_frontier_target_count": 1,
       "saved_lead_change_count": 0
     },
     "new_high_signal_leads": [
       {
-        "lead_key": "providence_oregon:1c1e39e2c273d3ed6075fb02875696be68c22560",
+        "lead_key": "providence_oregon:914dcb1b8a36f2399467a2a93111e56ed1903e14",
         "track": "core_rn_oregon",
-        "bucket": "priority",
-        "title": "Clinic RN - Urgent Care",
+        "bucket": "bridge",
+        "title": "RN - Medical Surgical",
         "company": "Providence",
         "location": "Portland, OR",
-        "detail_url": "https://providence-oregon.jobs/portland-or/clinic-rn-urgent-care/62504B75F8254092820AABE318B24F20/job/",
+        "detail_url": "https://providence-oregon.jobs/portland-or/rn-medical-surgical/B7C2AB0F1A254D92A89349D8A635E4DC/job/",
         "profile_scores": {
-          "oregon_now": 375,
-          "bridge_to_informatics": 343,
-          "frontier_transition": 249
+          "oregon_now": 291,
+          "bridge_to_informatics": 230,
+          "frontier_transition": 130
         },
         "starred": false,
         "saved": false,
@@ -19593,17 +19602,17 @@
         "pinned_reason": ""
       },
       {
-        "lead_key": "viz_ai_frontier_roles:9e83b6dab0c0f340f1197f588a130ca778b2acee",
+        "lead_key": "viz_ai_frontier_roles:0977e9626776149a22b63e171c71003680843d36",
         "track": "frontier_ecosystem",
         "bucket": "target",
-        "title": "Project Manager",
+        "title": "Senior Manager, Product Management (Neuro)",
         "company": "Viz.ai",
         "location": "United States - Remote",
-        "detail_url": "https://jobs.ashbyhq.com/Viz.ai?ashby_jid=ab860c4f-6860-4717-b7f7-91dfee65e0e2",
+        "detail_url": "https://jobs.ashbyhq.com/Viz.ai?ashby_jid=118607fc-7d8c-4260-9441-60d7f5a6a3dc",
         "profile_scores": {
-          "oregon_now": 199,
-          "bridge_to_informatics": 303,
-          "frontier_transition": 299
+          "oregon_now": 160,
+          "bridge_to_informatics": 257,
+          "frontier_transition": 283
         },
         "starred": false,
         "saved": false,
@@ -19611,13 +19620,13 @@
         "pinned_reason": ""
       },
       {
-        "lead_key": "kaiser_northwest_nursing:b97359f5b3918e686714b25dd05206ff4613e36e",
+        "lead_key": "kaiser_northwest_nursing:c35c986b8959effa576a34f3e08eb0b0401964d7",
         "track": "core_rn_oregon",
         "bucket": "priority",
-        "title": "RN, Inpatient",
+        "title": "RN - Medical Surgical (General) - KSMC 1S / 36 Hr / Days",
         "company": "Kaiser Permanente",
-        "location": "Clackamas, Oregon, Onsite, Full-time, Day",
-        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-inpatient/641/95454254224",
+        "location": "Clackamas, Oregon, Onsite, Part-time, Day",
+        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-medical-surgical-general-ksmc-1s-36-hr-days/641/96041326816",
         "profile_scores": {
           "oregon_now": 297,
           "bridge_to_informatics": 253,
@@ -19628,6 +19637,45 @@
         "dismissed": false,
         "pinned_reason": ""
       },
+      {
+        "lead_key": "ohsu_nursing:427338f5278bd10c01de41a93de8c113e0d367a4",
+        "track": "core_rn_oregon",
+        "bucket": "bridge",
+        "title": "Title RN, Pediatric Hem/Onc/BMT",
+        "company": "OHSU",
+        "location": "US-OR-Portland",
+        "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/39725/rn%2c-pediatric-hem-onc-bmt/job?in_iframe=1",
+        "profile_scores": {
+          "oregon_now": 239,
+          "bridge_to_informatics": 178,
+          "frontier_transition": 78
+        },
+        "starred": false,
+        "saved": false,
+        "dismissed": false,
+        "pinned_reason": ""
+      },
+      {
+        "lead_key": "kaiser_northwest_nursing:b4e509a868b832c2edf0035dafc4c54e9bf2442e",
+        "track": "core_rn_oregon",
+        "bucket": "watch",
+        "title": "RN, First Assist",
+        "company": "Kaiser Permanente",
+        "location": "Clackamas, Oregon, Onsite, Full-time, Day",
+        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-first-assist/641/96051885776",
+        "profile_scores": {
+          "oregon_now": 217,
+          "bridge_to_informatics": 94,
+          "frontier_transition": 58
+        },
+        "starred": false,
+        "saved": false,
+        "dismissed": false,
+        "pinned_reason": ""
+      }
+    ],
+    "promoted_leads": [],
+    "vanished_leads": [
       {
         "lead_key": "kaiser_northwest_nursing:dc16d62dab083825d3e293d7cab1dca7aa47a174",
         "track": "core_rn_oregon",
@@ -19644,81 +19692,22 @@
         "starred": false,
         "saved": false,
         "dismissed": false,
-        "pinned_reason": ""
+        "pinned_reason": "",
+        "previous_status": "active",
+        "current_status": "expired"
       },
       {
-        "lead_key": "providence_oregon:103e101110bc96ddaec4af187bdd248a01ef1ff0",
+        "lead_key": "providence_oregon:b85f0bc9bae6369baefc2d38fdcb44b668d17ec4",
         "track": "core_rn_oregon",
         "bucket": "bridge",
-        "title": "Assistant Nurse Manager - Emergency Services 1.0 FTE Evening",
+        "title": "RN - Medical Surgical",
         "company": "Providence",
         "location": "Portland, OR",
-        "detail_url": "https://providence-oregon.jobs/portland-or/assistant-nurse-manager-emergency-services-10-fte-evening/5024DD9D793F4566B772D6F671A74679/job/",
+        "detail_url": "https://providence-oregon.jobs/portland-or/rn-medical-surgical/F21549F3D0894309AD04921EEE06C802/job/",
         "profile_scores": {
-          "oregon_now": 251,
-          "bridge_to_informatics": 255,
-          "frontier_transition": 135
-        },
-        "starred": false,
-        "saved": false,
-        "dismissed": false,
-        "pinned_reason": ""
-      }
-    ],
-    "promoted_leads": [],
-    "vanished_leads": [
-      {
-        "lead_key": "kaiser_portland_nursing:f8841cd7b6f2b174d2f1e9379668a4532c3dcec2",
-        "track": "core_rn_oregon",
-        "bucket": "priority",
-        "title": "RN Case Manager - Oncology Portland, OR, Onsite, Full-time, Day",
-        "company": "Kaiser Permanente",
-        "location": "Portland, OR, Onsite, Full-time, Day",
-        "detail_url": "https://www.kaiserpermanentejobs.org/job/portland/rn-case-manager-oncology/641/91098570624",
-        "profile_scores": {
-          "oregon_now": 377,
-          "bridge_to_informatics": 335,
-          "frontier_transition": 241
-        },
-        "starred": false,
-        "saved": true,
-        "dismissed": false,
-        "pinned_reason": "good bridge role",
-        "previous_status": "active",
-        "current_status": "expired"
-      },
-      {
-        "lead_key": "providence_oregon:71fefeae20028dc846498a5db8622ed66d4ea10b",
-        "track": "core_rn_oregon",
-        "bucket": "priority",
-        "title": "Care Manager RN - Social Work 1.0 FTE Day",
-        "company": "Providence",
-        "location": "Medford, OR",
-        "detail_url": "https://providence-oregon.jobs/medford-or/care-manager-rn-social-work-10-fte-day/05473884F0954243958ED4C1A5792A51/job/",
-        "profile_scores": {
-          "oregon_now": 361,
-          "bridge_to_informatics": 264,
-          "frontier_transition": 190
-        },
-        "starred": false,
-        "saved": true,
-        "dismissed": false,
-        "pinned_reason": "good bridge role",
-        "previous_status": "active",
-        "current_status": "expired"
-      },
-      {
-        "lead_key": "kaiser_northwest_nursing:c3b8898019de763a8e65f3cf476104481acb4f14",
-        "track": "core_rn_oregon",
-        "bucket": "priority",
-        "title": "TEMP RN, Emergency Dept (36hrs, Nights)",
-        "company": "Kaiser Permanente",
-        "location": "Hillsboro, Oregon, Onsite, Part-time, Night",
-        "detail_url": "https://www.kaiserpermanentejobs.org/job/hillsboro/temp-rn-emergency-dept-36hrs-nights/641/95914866176",
-        "profile_scores": {
-          "oregon_now": 297,
-          "bridge_to_informatics": 253,
-          "frontier_transition": 159
+          "oregon_now": 291,
+          "bridge_to_informatics": 230,
+          "frontier_transition": 130
         },
         "starred": false,
         "saved": false,
@@ -19728,57 +19717,17 @@
         "current_status": "expired"
       },
       {
-        "lead_key": "kaiser_northwest_nursing:f44f23c675f0a7a418e41c63ac1d3101ce5879be",
+        "lead_key": "ohsu_nursing:7ceada12861a439bda6e0cd0f9d6c0238b6361bc",
         "track": "core_rn_oregon",
         "bucket": "priority",
-        "title": "RN, Outpatient -SPUPU - On Call",
-        "company": "Kaiser Permanente",
-        "location": "Salem, Oregon, Onsite, Call-in/On-Call, Day",
-        "detail_url": "https://www.kaiserpermanentejobs.org/job/salem/rn-outpatient-spupu-on-call/641/95434945232",
-        "profile_scores": {
-          "oregon_now": 289,
-          "bridge_to_informatics": 247,
-          "frontier_transition": 153
-        },
-        "starred": false,
-        "saved": false,
-        "dismissed": false,
-        "pinned_reason": "",
-        "previous_status": "active",
-        "current_status": "expired"
-      },
-      {
-        "lead_key": "kaiser_northwest_nursing:335369f688905fa2a4a90fb74da76b81bbd3aa72",
-        "track": "core_rn_oregon",
-        "bucket": "bridge",
-        "title": "RN, First Assist-Ambulatory Surgery",
-        "company": "Kaiser Permanente",
-        "location": "Clackamas, Oregon, Onsite, Full-time, Day",
-        "detail_url": "https://www.kaiserpermanentejobs.org/job/clackamas/rn-first-assist-ambulatory-surgery/641/93994838752",
-        "profile_scores": {
-          "oregon_now": 275,
-          "bridge_to_informatics": 172,
-          "frontier_transition": 102
-        },
-        "starred": false,
-        "saved": false,
-        "dismissed": false,
-        "pinned_reason": "",
-        "previous_status": "active",
-        "current_status": "expired"
-      },
-      {
-        "lead_key": "ohsu_nursing:93d2162d02199bbbdacb4e49a998b30dea5ebe77",
-        "track": "core_rn_oregon",
-        "bucket": "bridge",
-        "title": "Title RN, Emergency Observation",
+        "title": "Title RN, Pediatric Operating Room",
         "company": "OHSU",
         "location": "US-OR-Portland",
-        "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/38919/rn%2c-emergency-observation/job?in_iframe=1",
+        "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/37679/rn%2c-pediatric-operating-room/job?in_iframe=1",
         "profile_scores": {
-          "oregon_now": 239,
-          "bridge_to_informatics": 178,
-          "frontier_transition": 78
+          "oregon_now": 291,
+          "bridge_to_informatics": 259,
+          "frontier_transition": 165
         },
         "starred": false,
         "saved": false,
@@ -19788,17 +19737,17 @@
         "current_status": "expired"
       },
       {
-        "lead_key": "ohsu_nursing:da1eb34f0a5f74f4e23e6779ce25935176f56e59",
+        "lead_key": "ohsu_nursing:e2cba1c3cf72deaa8cba595b198fc3da03859b33",
         "track": "core_rn_oregon",
         "bucket": "bridge",
-        "title": "Title RN, Stress Testing",
+        "title": "Title RN, Trauma",
         "company": "OHSU",
         "location": "US-OR-Portland",
-        "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/39405/rn%2c-stress-testing/job?in_iframe=1",
+        "detail_url": "https://nursingcareers-ohsu.icims.com/jobs/37690/rn%2c-trauma/job?in_iframe=1",
         "profile_scores": {
-          "oregon_now": 239,
-          "bridge_to_informatics": 178,
-          "frontier_transition": 78
+          "oregon_now": 279,
+          "bridge_to_informatics": 216,
+          "frontier_transition": 116
         },
         "starred": false,
         "saved": false,
@@ -19810,19 +19759,17 @@
     ],
     "employers_with_increasing_activity": [
       {
-        "employer_name": "Providence",
+        "employer_name": "Kaiser Permanente",
         "tracks": [
-          "core_rn_oregon",
-          "frontier_ecosystem"
+          "core_rn_oregon"
         ],
-        "previous_active_count": 41,
-        "current_active_count": 42,
+        "previous_active_count": 7,
+        "current_active_count": 8,
         "delta": 1,
         "employer_tags": [
           "manual_interest_high",
           "starred_employer",
-          "high_priority_employer",
-          "bridge_employer"
+          "high_priority_employer"
         ]
       },
       {
@@ -19830,8 +19777,8 @@
         "tracks": [
           "frontier_ecosystem"
         ],
-        "previous_active_count": 13,
-        "current_active_count": 14,
+        "previous_active_count": 14,
+        "current_active_count": 15,
         "delta": 1,
         "employer_tags": [
           "manual_interest_frontier",
@@ -19844,17 +19791,17 @@
     ],
     "new_frontier_targets": [
       {
-        "lead_key": "viz_ai_frontier_roles:9e83b6dab0c0f340f1197f588a130ca778b2acee",
+        "lead_key": "viz_ai_frontier_roles:0977e9626776149a22b63e171c71003680843d36",
         "track": "frontier_ecosystem",
         "bucket": "target",
-        "title": "Project Manager",
+        "title": "Senior Manager, Product Management (Neuro)",
         "company": "Viz.ai",
         "location": "United States - Remote",
-        "detail_url": "https://jobs.ashbyhq.com/Viz.ai?ashby_jid=ab860c4f-6860-4717-b7f7-91dfee65e0e2",
+        "detail_url": "https://jobs.ashbyhq.com/Viz.ai?ashby_jid=118607fc-7d8c-4260-9441-60d7f5a6a3dc",
         "profile_scores": {
-          "oregon_now": 199,
-          "bridge_to_informatics": 303,
-          "frontier_transition": 299
+          "oregon_now": 160,
+          "bridge_to_informatics": 257,
+          "frontier_transition": 283
         },
         "starred": false,
         "saved": false,
