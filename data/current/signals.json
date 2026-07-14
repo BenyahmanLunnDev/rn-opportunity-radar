@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T08:54:17.058376-07:00",
+  "generated_at": "2026-07-14T08:06:29.403495-07:00",
   "timezone": "America/Los_Angeles",
   "signals": [
     {
@@ -121,9 +121,9 @@
       "stale_source": false,
       "stale_since": "",
       "first_seen": "2026-04-11",
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "expired_on": "",
-      "seen_count": 103
+      "seen_count": 104
     },
     {
       "lead_key": "ohsu_heal:9a2c65125dc9f3f497106d4b0a5cc5f089540bbc",
@@ -245,9 +245,9 @@
       "stale_source": false,
       "stale_since": "",
       "first_seen": "2026-04-11",
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "expired_on": "",
-      "seen_count": 103
+      "seen_count": 104
     },
     {
       "lead_key": "providence_cnp:720e85566653305274a1323d384613eb6e00d065",
@@ -366,9 +366,9 @@
       "stale_source": false,
       "stale_since": "",
       "first_seen": "2026-04-11",
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "expired_on": "",
-      "seen_count": 103
+      "seen_count": 104
     },
     {
       "lead_key": "providence_provaria:e5b6350015f79fed377c82f1357831b2cf194232",
@@ -487,9 +487,9 @@
       "stale_source": false,
       "stale_since": "",
       "first_seen": "2026-04-11",
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "expired_on": "",
-      "seen_count": 103
+      "seen_count": 104
     },
     {
       "lead_key": "providence_dax:891de065aeab97bf83c42190bfb55c9918575aa9",
@@ -609,9 +609,9 @@
       "stale_source": false,
       "stale_since": "",
       "first_seen": "2026-04-11",
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "expired_on": "",
-      "seen_count": 103
+      "seen_count": 104
     },
     {
       "lead_key": "viz_ai_platform_signal:c789c39199bfdbcec530a1b3aa154a5d2aa41298",
@@ -731,9 +731,127 @@
       "stale_source": false,
       "stale_since": "",
       "first_seen": "2026-04-11",
-      "last_seen": "2026-07-13",
+      "last_seen": "2026-07-14",
       "expired_on": "",
-      "seen_count": 98
+      "seen_count": 99
+    },
+    {
+      "lead_key": "providence_office_of_transformation:fa67fbceb61fdd4980008f455745ce485c24351e",
+      "lead_type": "signal",
+      "source_key": "providence_office_of_transformation",
+      "source_name": "Providence Office of Transformation",
+      "company": "Providence",
+      "title": "Office of Transformation helps caregivers better help you",
+      "detail_url": "https://blog.providence.org/blog/office-of-transformation-helps-caregivers-better-help-you",
+      "source_url": "https://blog.providence.org/blog/office-of-transformation-helps-caregivers-better-help-you",
+      "location": "",
+      "posted_date": "",
+      "description": "Our new Office of Transformation uses new technology to improve the lives of caregivers so they can better care for you.",
+      "source_context": "office of transformation",
+      "discovered_via": "Providence Office of Transformation",
+      "track": "frontier_ecosystem",
+      "subtrack": "health_system",
+      "horizon": "stretch",
+      "geo_scope": "oregon",
+      "rn_leverage_type": "implementation",
+      "relocation_risk": "none",
+      "metadata": {
+        "source_priority": 100,
+        "source_class": "official",
+        "track": "frontier_ecosystem",
+        "subtrack": "health_system",
+        "horizon": "post_reinstatement",
+        "geo_scope": "oregon",
+        "rn_leverage_type": "implementation",
+        "relocation_risk": "none",
+        "employer_priority": "high",
+        "employer_slug": "providence"
+      },
+      "score": 38,
+      "score_breakdown": {
+        "track": "frontier_ecosystem",
+        "bucket_universe": "frontier_ecosystem",
+        "title_score": 0,
+        "description_score": 0,
+        "rn_score": 0,
+        "location_score": 0,
+        "employer_score": 16,
+        "icu_score": 0,
+        "bridge_score": 0,
+        "signal_score": 22,
+        "frontier_fit_score": 0,
+        "leverage_score": 0,
+        "scope_score": 0,
+        "penalty_score": 0,
+        "final_score": 38,
+        "role_class": "frontier_signal",
+        "bucket_decision_notes": [
+          "Signal belongs in the frontier ecosystem rail, not the actionable job rail."
+        ],
+        "promoted_by_bridge_logic": false,
+        "demoted_generic_rn_volume": false,
+        "generic_rn_volume": false,
+        "engineering_heavy": false
+      },
+      "profile_scores": {
+        "oregon_now": 65,
+        "bridge_to_informatics": 137,
+        "frontier_transition": 139
+      },
+      "profile_reasons": {
+        "oregon_now": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this RN leverage type",
+          "profile preferences downweight this horizon",
+          "manual employer interest level is high",
+          "frontier rail is intentionally secondary for Oregon-now decisions"
+        ],
+        "bridge_to_informatics": [
+          "profile preferences favor Providence",
+          "profile preferences favor this geo scope",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences downweight this horizon",
+          "manual employer interest level is high"
+        ],
+        "frontier_transition": [
+          "profile preferences favor Providence",
+          "profile preferences favor this track",
+          "profile preferences favor this RN leverage type",
+          "profile preferences downweight this horizon",
+          "manual employer interest level is high",
+          "frontier rail is primary for transition planning"
+        ]
+      },
+      "profile_preference_deltas": {
+        "oregon_now": 41,
+        "bridge_to_informatics": 45,
+        "frontier_transition": 35
+      },
+      "reasons": [
+        "curated frontier ecosystem signal worth monitoring",
+        "source context includes 'office of transformation'",
+        "frontier employer signal boost for Providence"
+      ],
+      "tags": [
+        "Transformation",
+        "Operations",
+        "Employer Signal"
+      ],
+      "bucket": "ecosystem_signal",
+      "starred": false,
+      "saved": false,
+      "dismissed": false,
+      "pinned_reason": "",
+      "manual_notes": [],
+      "status": "active",
+      "stale_source": false,
+      "stale_since": "",
+      "first_seen": "2026-04-11",
+      "last_seen": "2026-07-14",
+      "expired_on": "",
+      "seen_count": 104
     },
     {
       "lead_key": "pearl_health_platform_signal:7a8167e6f6d6c7297e162490d3b34246be8b855a",
@@ -850,130 +968,12 @@
       "pinned_reason": "",
       "manual_notes": [],
       "status": "active",
-      "stale_source": false,
-      "stale_since": "",
+      "stale_source": true,
+      "stale_since": "2026-07-14",
       "first_seen": "2026-04-11",
       "last_seen": "2026-07-13",
       "expired_on": "",
       "seen_count": 98
-    },
-    {
-      "lead_key": "providence_office_of_transformation:fa67fbceb61fdd4980008f455745ce485c24351e",
-      "lead_type": "signal",
-      "source_key": "providence_office_of_transformation",
-      "source_name": "Providence Office of Transformation",
-      "company": "Providence",
-      "title": "Office of Transformation helps caregivers better help you",
-      "detail_url": "https://blog.providence.org/blog/office-of-transformation-helps-caregivers-better-help-you",
-      "source_url": "https://blog.providence.org/blog/office-of-transformation-helps-caregivers-better-help-you",
-      "location": "",
-      "posted_date": "",
-      "description": "Our new Office of Transformation uses new technology to improve the lives of caregivers so they can better care for you.",
-      "source_context": "office of transformation",
-      "discovered_via": "Providence Office of Transformation",
-      "track": "frontier_ecosystem",
-      "subtrack": "health_system",
-      "horizon": "stretch",
-      "geo_scope": "oregon",
-      "rn_leverage_type": "implementation",
-      "relocation_risk": "none",
-      "metadata": {
-        "source_priority": 100,
-        "source_class": "official",
-        "track": "frontier_ecosystem",
-        "subtrack": "health_system",
-        "horizon": "post_reinstatement",
-        "geo_scope": "oregon",
-        "rn_leverage_type": "implementation",
-        "relocation_risk": "none",
-        "employer_priority": "high",
-        "employer_slug": "providence"
-      },
-      "score": 38,
-      "score_breakdown": {
-        "track": "frontier_ecosystem",
-        "bucket_universe": "frontier_ecosystem",
-        "title_score": 0,
-        "description_score": 0,
-        "rn_score": 0,
-        "location_score": 0,
-        "employer_score": 16,
-        "icu_score": 0,
-        "bridge_score": 0,
-        "signal_score": 22,
-        "frontier_fit_score": 0,
-        "leverage_score": 0,
-        "scope_score": 0,
-        "penalty_score": 0,
-        "final_score": 38,
-        "role_class": "frontier_signal",
-        "bucket_decision_notes": [
-          "Signal belongs in the frontier ecosystem rail, not the actionable job rail."
-        ],
-        "promoted_by_bridge_logic": false,
-        "demoted_generic_rn_volume": false,
-        "generic_rn_volume": false,
-        "engineering_heavy": false
-      },
-      "profile_scores": {
-        "oregon_now": 65,
-        "bridge_to_informatics": 137,
-        "frontier_transition": 139
-      },
-      "profile_reasons": {
-        "oregon_now": [
-          "profile preferences favor Providence",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this RN leverage type",
-          "profile preferences downweight this horizon",
-          "manual employer interest level is high",
-          "frontier rail is intentionally secondary for Oregon-now decisions"
-        ],
-        "bridge_to_informatics": [
-          "profile preferences favor Providence",
-          "profile preferences favor this geo scope",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences downweight this horizon",
-          "manual employer interest level is high"
-        ],
-        "frontier_transition": [
-          "profile preferences favor Providence",
-          "profile preferences favor this track",
-          "profile preferences favor this RN leverage type",
-          "profile preferences downweight this horizon",
-          "manual employer interest level is high",
-          "frontier rail is primary for transition planning"
-        ]
-      },
-      "profile_preference_deltas": {
-        "oregon_now": 41,
-        "bridge_to_informatics": 45,
-        "frontier_transition": 35
-      },
-      "reasons": [
-        "curated frontier ecosystem signal worth monitoring",
-        "source context includes 'office of transformation'",
-        "frontier employer signal boost for Providence"
-      ],
-      "tags": [
-        "Transformation",
-        "Operations",
-        "Employer Signal"
-      ],
-      "bucket": "ecosystem_signal",
-      "starred": false,
-      "saved": false,
-      "dismissed": false,
-      "pinned_reason": "",
-      "manual_notes": [],
-      "status": "active",
-      "stale_source": false,
-      "stale_since": "",
-      "first_seen": "2026-04-11",
-      "last_seen": "2026-07-13",
-      "expired_on": "",
-      "seen_count": 103
     }
   ]
 }
